@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['namespace' => 'App\Http\Controllers'], function () {
     
-  
+    Route::get('/admin/categories', 'CategoryController@index')->name('admin.categories.show');
 
     Route::group(['middleware' => ['guest']], function () {
         
