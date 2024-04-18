@@ -14,13 +14,19 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::group(['namespace' => 'App\Http\Controllers'], function () {
-    
+    // Categories
     Route::get('/admin/categories', 'CategoryController@index')->name('admin.categories.index');
     Route::get('/admin/categories/add', 'CategoryController@create')->name('admin.categories.create');
     Route::post('/admin/categories/add', 'CategoryController@add')->name('admin.categories.add');
     Route::get('/admin/categories/edit/{id}', 'CategoryController@edit')->name('admin.categories.edit');
     Route::post('/admin/categories/update', 'CategoryController@update')->name('admin.categories.update');
     Route::get('/admin/categories/delete/{id}', 'CategoryController@delete')->name('admin.categories.delete');
+
+    // Authors
+    Route::get('/admin/authors', 'AuthorController@index')->name('admin.authors.index');
+    Route::get('/admin/authors/create', 'AuthorController@create')->name('admin.authors.create');
+    Route::post('/admin/authors/store', 'AuthorController@store')->name('admin.authors.store');
+
 
     Route::group(['middleware' => ['guest']], function () {
         /**
