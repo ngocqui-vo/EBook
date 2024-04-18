@@ -1,6 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
+    <h1>Thêm danh mục</h1>
     <form method="POST" action="{{ route('admin.categories.add') }}">
         @csrf
         <div class="mb-3">
