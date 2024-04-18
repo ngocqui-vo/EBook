@@ -32,4 +32,10 @@ class CategoryController extends Controller
         $category->save();
         return redirect()->route('admin.categories.index');
     }
+
+    public function delete($id) {
+        $category = Category::find($id);
+        $category->delete();
+        return redirect()->route('admin.categories.index');
+    }
 }
