@@ -19,8 +19,6 @@ class RegisterController extends Controller
         //     "password" => "required|min:3",
         //     "password_confirmation" => "required|same:password",          
         // ]);
-        $email = $request->input("email");
-        $e = $request->email;
         $user = User::create([
             'email' => $request->email,
             'name' => $request->name,
