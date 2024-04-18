@@ -1,5 +1,9 @@
 @extends('layouts.app-master')
 
+@section('title')
+Login
+@endsection
+
 @section('content')
     <div class="row thumbnail center">
         <div class="col-sm-12">
