@@ -13,8 +13,8 @@
                         <button type="submit" class="btn btn-primary">Tìm kiếm</button>
                     </form>
                 </li>
-                <li><a href="login.html">Đăng nhập</a></li>
-                <li><a href="register.html">Đăng ký</a></li>
+                <li><a href="{{ route('login.show') }}">Đăng nhập</a></li>
+                <li><a href="{{ route('register.show') }}">Đăng ký</a></li>
                 <li>
                     <a href="cart.html"><span class="glyphicon glyphicon-shopping-cart">Giỏ hàng</span></a>
                 </li>
