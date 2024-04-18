@@ -12,7 +12,7 @@
                 <svg class="bi me-2" width="16" height="16">
                     <use xlink:href="#home" />
                 </svg>
-                Sách
+                Danh mục
             </a>
         </li>
         <li>
@@ -20,7 +20,7 @@
                 <svg class="bi me-2" width="16" height="16">
                     <use xlink:href="#speedometer2" />
                 </svg>
-                Danh mục
+                Tác giả
             </a>
         </li>
         <li>
@@ -28,7 +28,7 @@
                 <svg class="bi me-2" width="16" height="16">
                     <use xlink:href="#table" />
                 </svg>
-                Tác giả
+                Sách
             </a>
         </li>
         <li>
