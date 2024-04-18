@@ -16,7 +16,7 @@
                 <tr>
                     <th scope="row">{{ $category->id }}</th>
                     <td class="col-6">{{ $category->name }}</td>
-                    <td><a class="btn btn-primary" href="">Sửa</a>  <a class="btn btn-danger" href="">Xóa</a></td>
+                    <td><a class="btn btn-primary" href="{{ route('admin.categories.edit') }}">Sửa</a>  <a class="btn btn-danger" href="">Xóa</a></td>
                 </tr>
             @endforeach
 
