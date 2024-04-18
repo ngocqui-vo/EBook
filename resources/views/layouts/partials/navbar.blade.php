@@ -25,6 +25,10 @@
                 <li><a href="login.html">Đăng nhập</a></li>
                 <li><a href="register.html">Đăng ký</a></li>
                 @endguest
+                <li>
+                    <a href="center.html">Chào mừng, user</a>
+                    <a href="{{ route('logout.perform') }}">Đăng xuất</a>
+                </li>
             </ul>
         </div>
     </div>
