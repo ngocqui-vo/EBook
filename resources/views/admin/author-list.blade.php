@@ -9,6 +9,7 @@
                 <th scope="col">ID</th>
                 <th scope="col">Name</th>
                 <th scope="col">Bio</th>
+                <th scope="col"></th>
             </tr>
         </thead>
         <tbody>
@@ -19,7 +20,7 @@
                     <td class="col-4">{{ $author->bio }}</td>
                     <td>
                         <a class="btn btn-primary" href="">Sửa</a>  
-                        <a class="btn btn-danger" href="">Xóa</a>
+                        <a class="btn btn-danger" href="{{ route('admin.authors.delete', ['id' => $author->id]) }}">Xóa</a>
                     </td>
                 </tr>
             @endforeach

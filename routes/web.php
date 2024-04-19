@@ -26,6 +26,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
     Route::get('/admin/authors', 'AuthorController@index')->name('admin.authors.index');
     Route::get('/admin/authors/create', 'AuthorController@create')->name('admin.authors.create');
     Route::post('/admin/authors/store', 'AuthorController@store')->name('admin.authors.store');
+    Route::get('/admin/authors/delete/{id}', 'AuthorController@delete')->name('admin.authors.delete');
 
 
     Route::group(['middleware' => ['guest']], function () {

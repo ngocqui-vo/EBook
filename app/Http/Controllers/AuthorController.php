@@ -20,4 +20,10 @@ class AuthorController extends Controller
         Author::create($request->all());
         return redirect()->route('admin.authors.index');
     }
+
+    public function delete($id) {
+        $author = Author::find($id);
+        $author->delete();
+        return redirect()->route('admin.authors.index');
+    }
 }
