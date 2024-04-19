@@ -6,8 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>
-        @section('title')
-        @endsection
+        @yield('title')
     </title>
     {{-- <link rel="stylesheet" href="{!! url('assets/bootstrap-3.3.4/dist/css/bootstrap.min.css') !!}">
     <link rel="stylesheet" href="{!! url('assets/Flat-UI-master/dist/css/flat-ui.min.css') !!}">
@@ -31,10 +30,14 @@
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
         $(document).ready(function() {
             // Lấy đường dẫn hiện tại của trang
             var currentUrl = window.location.href;
+
+            // Xóa class active khỏi tất cả các mục danh sách
+            $('.nav-link').removeClass('active');
 
             // Kiểm tra và đánh dấu mục danh sách là active dựa trên đường dẫn hiện tại
             $('.nav-link').each(function() {

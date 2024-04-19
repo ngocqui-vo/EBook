@@ -8,7 +8,7 @@
     <hr>
     <ul class="nav nav-pills flex-column mb-auto">
         <li class="nav-item">
-            <a href="{{ route('admin.categories.index') }}" class="nav-link active" aria-current="page">
+            <a href="{{ route('admin.categories.index') }}" class="nav-link text-white">
                 <svg class="bi me-2" width="16" height="16">
                     <use xlink:href="#home" />
                 </svg>
