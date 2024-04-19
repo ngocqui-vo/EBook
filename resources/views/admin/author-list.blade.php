@@ -19,7 +19,7 @@
                     <td class="col-6">{{ $author->name }}</td>
                     <td class="col-4">{{ $author->bio }}</td>
                     <td>
-                        <a class="btn btn-primary" href="">Sửa</a>  
+                        <a class="btn btn-primary" href="{{ route('admin.authors.edit', ['id' => $author->id]) }}">Sửa</a>  
                         <a class="btn btn-danger" href="{{ route('admin.authors.delete', ['id' => $author->id]) }}">Xóa</a>
                     </td>
                 </tr>

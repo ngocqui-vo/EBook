@@ -20,6 +20,17 @@ class AuthorController extends Controller
         Author::create($request->all());
         return redirect()->route('admin.authors.index');
     }
+    public function edit($id) {
+        $author = Author::find($id);
+        return view('admin.author-edit', ['author'=> $author]);
+    }
+
+    public function update(Request $request) {
+        $author = Author::find($request->id);
+        $author->update(['name' => $request->name]);
+        $author->save();
+        return redirect()->route('admin.authors.index');
+    }
 
     public function delete($id) {
         $author = Author::find($id);
