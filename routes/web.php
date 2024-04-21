@@ -30,6 +30,11 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
     Route::get('/admin/authors/edit/{id}', 'AuthorController@edit')->name('admin.authors.edit');
     Route::post('/admin/authors/update', 'AuthorController@update')->name('admin.authors.update');
 
+    // Books
+    Route::get('/admin/books', 'BookController@index')->name('admin.books.index');
+    Route::get('/admin/books/create', 'BookController@create')->name('admin.books.create');
+    Route::post('/admin/books/store', 'BookController@store')->name('admin.books.store');
+
 
     Route::group(['middleware' => ['guest']], function () {
         /**
