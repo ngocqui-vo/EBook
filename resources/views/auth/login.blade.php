@@ -12,8 +12,9 @@ Login
         <div class="col-sm-12">
             <form class="form-horizontal caption" method="POST" action="{{ route('login.perform') }}">
                 @csrf
+                @csrf
                 <div class="form-group">
-                    <label for="username" class="col-sm-4 control-label">Tài khoản</label>
+                    <label for="email" class="col-sm-4 control-label">Tài khoản</label>
                     <div class="col-sm-5">
                         <input type="text" class="form-control" name="email" placeholder="Email hoặc tên tài khoản"
                             required autofocus>
