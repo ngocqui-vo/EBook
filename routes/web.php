@@ -36,6 +36,12 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
     Route::post('/admin/books/store', 'BookController@store')->name('admin.books.store');
 
 
+    // Users
+    Route::get('/admin/users', 'UserController@index')->name('admin.users.index');
+    Route::get('/admin/users/create', 'UserController@create')->name('admin.users.create');
+    Route::post('/admin/users/store', 'UserController@store')->name('admin.users.store');
+
+
     Route::group(['middleware' => ['guest']], function () {
         /**
          * Register Routes
