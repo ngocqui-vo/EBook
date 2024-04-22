@@ -37,4 +37,9 @@ class UserController extends Controller
         $user->save();
         return redirect('')->route('admin.users.index');
     }
+
+    public function delete($id) {
+        User::find($id)->delete();
+        return redirect('')->route('admin.users.index');
+    }
 }

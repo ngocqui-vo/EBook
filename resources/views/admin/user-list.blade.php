@@ -18,8 +18,8 @@
                     <td class="col">{{ $user->name }}</td>
                     <td class="col">{{ $user->email }}</td>
                     <td>
-                        <a class="btn btn-primary" href="">Sửa</a>  
-                        <a class="btn btn-danger" href="">Xóa</a>
+                        <a class="btn btn-primary" href="{{ route('admin.users.edit', ['id' => $user->id]) }}">Sửa</a>  
+                        <a class="btn btn-danger" href="{{ route('admin.users.delete', ['id' => $user->id]) }}">Xóa</a>
                     </td>
                 </tr>
             @endforeach
