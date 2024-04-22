@@ -24,4 +24,17 @@ class UserController extends Controller
         ]);
         return redirect('')->route('admin.users.index');
     }
+
+    public function edit($id) {
+        $user = User::find($id);
+        return view('admin.user-edit',['user'=> $user]);
+    }
+
+    public function update(Request $request) {
+        $user = User::find($request->id);
+        $user->name = $request->name;
+        $user->password = bcrypt($request->password);
+        $user->save();
+        return redirect('')->route('admin.users.index');
+    }
 }

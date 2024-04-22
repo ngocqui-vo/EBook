@@ -40,6 +40,8 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
     Route::get('/admin/users', 'UserController@index')->name('admin.users.index');
     Route::get('/admin/users/create', 'UserController@create')->name('admin.users.create');
     Route::post('/admin/users/store', 'UserController@store')->name('admin.users.store');
+    Route::get('/admin/users/edit', 'UserController@edit')->name('admin.users.edit');
+    Route::post('/admin/users/update', 'UserController@update')->name('admin.users.update');
 
 
     Route::group(['middleware' => ['guest']], function () {
