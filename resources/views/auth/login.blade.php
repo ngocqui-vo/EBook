@@ -11,20 +11,21 @@ Login
         </div>
         <div class="col-sm-12">
             <form class="form-horizontal caption" method="POST" action="{{ route('login.perform') }}">
+                @csrf
                 <div class="form-group">
-                    <label for="username" class="col-sm-4 control-label">Tài khoản</label>
+                    <label for="email" class="col-sm-4 control-label">Tài khoản</label>
                     <div class="col-sm-5">
-                        <input type="text" class="form-control" id="username" placeholder="Email hoặc tên tài khoản"
-                            required autofocus>
-                        @if ($errors->has('username'))
-                            <span class="text-danger text-left">{{ $errors->first('username') }}</span>
+                        <input type="email" class="form-control" id="email" placeholder="Email hoặc tên tài khoản"
+                            required autofocus name="email">
+                        @if ($errors->has('email'))
+                            <span class="text-danger text-left">{{ $errors->first('email') }}</span>
                         @endif
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="password" class="col-sm-4 control-label">Mật khẩu</label>
                     <div class="col-sm-5">
-                        <input type="password" class="form-control" id="password" placeholder="Mật khẩu">
+                        <input type="password" class="form-control" id="password" placeholder="Mật khẩu" name="password">
                         @if ($errors->has('password'))
                             <span class="text-danger text-left">{{ $errors->first('password') }}</span>
                         @endif

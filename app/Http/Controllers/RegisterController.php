@@ -24,7 +24,7 @@ class RegisterController extends Controller
         $user = User::create([
             'email' => $request->email,
             'name' => $request->name,
-            'password' => $request->password,
+            'password' => bcrypt($request->password),
         ]);
         auth()->login($user);
         return redirect('')->route('home.index');
