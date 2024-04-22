@@ -36,6 +36,8 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
     Route::post('/admin/books/store', 'BookController@store')->name('admin.books.store');
     Route::get('/admin/books/edit/{id}', 'BookController@edit')->name('admin.books.edit');
     Route::post('/admin/books/update', 'BookController@update')->name('admin.books.update');
+    Route::post('/admin/books/delete/{id}', 'BookController@delete')->name('admin.books.delete');
+
 
 
     Route::group(['middleware' => ['guest']], function () {

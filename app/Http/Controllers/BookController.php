@@ -77,4 +77,10 @@ class BookController extends Controller
         $book->save();
         return redirect()->route('admin.books.index');
     }
+
+    public function delete($id) {
+        $book = Book::find($id);
+        $book->delete();
+        return redirect()->route('admin.books.index');
+    }
 }

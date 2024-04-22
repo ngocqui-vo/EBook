@@ -26,7 +26,7 @@
                     <td class="col">{{ $book->author->name }}</td>
                     <td>
                         <a class="btn btn-primary" href="{{ route('admin.books.edit', ['id' => $book->id]) }}">Sửa</a>  
-                        <a class="btn btn-danger" href="">Xóa</a>
+                        <a class="btn btn-danger" href="{{ route('admin.books.delete', ['id' => $book->id]) }}">Xóa</a>
                     </td>
                 </tr>
             @endforeach
