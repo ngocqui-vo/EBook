@@ -9,7 +9,6 @@
                 <th scope="col">ID</th>
                 <th scope="col">Tên</th>
                 <th scope="col">Giá</th>
-                <th scope="col">Mô tả</th>
                 <th scope="col">Ngày phát hành</th>
                 <th scope="col">Danh mục</th>
                 <th scope="col">Tác giả</th>
@@ -22,12 +21,11 @@
                     <th scope="row">{{ $book->id }}</th>
                     <td class="col">{{ $book->title }}</td>
                     <td class="col">{{ $book->price }} VND</td>
-                    <td class="col">{{ $book->description }}</td>
                     <td class="col">{{ $book->published_date }}</td>
                     <td class="col">{{ $book->category->name }}</td>
                     <td class="col">{{ $book->author->name }}</td>
                     <td>
-                        <a class="btn btn-primary" href="">Sửa</a>  
+                        <a class="btn btn-primary" href="{{ route('admin.books.edit', ['id' => $book->id]) }}">Sửa</a>  
                         <a class="btn btn-danger" href="">Xóa</a>
                     </td>
                 </tr>

@@ -42,5 +42,39 @@ class BookController extends Controller
         return redirect()->route('admin.books.index');
     }
 
-    
+    public function edit($id) {
+        $book = Book::find($id);
+        $authors = Author::all();
+        $categories = Category::all();
+        return view('admin.book-edit', ['book'=> $book,'authors' => $authors, 'categories' => $categories]);
+    }
+
+    public function update(Request $request) {
+        $book = Book::find($request->id);
+        $book->title = $request->input('title');
+        $book->price = $request->input('price');
+        $book->description = $request->input('description');
+        $book->published_date = $request->input('published_date');
+        if ( $request->input('category')) {
+            $book->category_id = $request->input('category');
+        }
+        else {
+            $book->category_id = null;
+        }
+
+        if ($request->input('author')) {
+            $book->author_id = $request->input('author');
+        }
+        else {
+            $book->author_id = null;
+        }
+
+        if ($request->hasFile('image')) {
+            $imagePath = $request->file('image')->store('books', 'public');
+            $book->image = $imagePath;
+        }
+
+        $book->save();
+        return redirect()->route('admin.books.index');
+    }
 }
