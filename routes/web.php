@@ -34,6 +34,10 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
     Route::get('/admin/books', 'BookController@index')->name('admin.books.index');
     Route::get('/admin/books/create', 'BookController@create')->name('admin.books.create');
     Route::post('/admin/books/store', 'BookController@store')->name('admin.books.store');
+    Route::get('/admin/books/edit/{id}', 'BookController@edit')->name('admin.books.edit');
+    Route::post('/admin/books/update', 'BookController@update')->name('admin.books.update');
+    Route::post('/admin/books/delete/{id}', 'BookController@delete')->name('admin.books.delete');
+
 
 
     // Users
