@@ -9,7 +9,7 @@ class CategoryController extends Controller
 {
     public function index() {
         $categories = Category::all();
-        return view('admin.home', ['categories'=> $categories]);
+        return view('admin.category-list', ['categories'=> $categories]);
     }
 
     public function create() {

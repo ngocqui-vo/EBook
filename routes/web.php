@@ -30,6 +30,20 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
     Route::get('/admin/authors/edit/{id}', 'AuthorController@edit')->name('admin.authors.edit');
     Route::post('/admin/authors/update', 'AuthorController@update')->name('admin.authors.update');
 
+    // Books
+    Route::get('/admin/books', 'BookController@index')->name('admin.books.index');
+    Route::get('/admin/books/create', 'BookController@create')->name('admin.books.create');
+    Route::post('/admin/books/store', 'BookController@store')->name('admin.books.store');
+
+
+    // Users
+    Route::get('/admin/users', 'UserController@index')->name('admin.users.index');
+    Route::get('/admin/users/create', 'UserController@create')->name('admin.users.create');
+    Route::post('/admin/users/store', 'UserController@store')->name('admin.users.store');
+    Route::get('/admin/users/edit/{id}', 'UserController@edit')->name('admin.users.edit');
+    Route::post('/admin/users/update', 'UserController@update')->name('admin.users.update');
+    Route::post('/admin/users/delete/{id}', 'UserController@update')->name('admin.users.update');
+
 
     Route::group(['middleware' => ['guest']], function () {
         /**

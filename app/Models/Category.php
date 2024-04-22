@@ -13,4 +13,8 @@ class Category extends Model
         'id',
         'name',
     ];
+
+    public function books() {
+        return $this->hasMany(Book::class);
+    }
 }
