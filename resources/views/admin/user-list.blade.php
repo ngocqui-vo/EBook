@@ -9,6 +9,8 @@
                 <th scope="col">ID</th>
                 <th scope="col">Name</th>
                 <th scope="col">Email</th>
+                <th class="col">Role</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -17,6 +19,7 @@
                     <th scope="row">{{ $user->id }}</th>
                     <td class="col">{{ $user->name }}</td>
                     <td class="col">{{ $user->email }}</td>
+                    <td class="col">{{ $user->role ? 'Admin' : 'Member' }}</td>
                     <td>
                         <a class="btn btn-primary" href="{{ route('admin.users.edit', ['id' => $user->id]) }}">Sửa</a>  
                         <a class="btn btn-danger" href="{{ route('admin.users.delete', ['id' => $user->id]) }}">Xóa</a>

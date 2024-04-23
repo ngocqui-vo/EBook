@@ -21,6 +21,7 @@ class UserController extends Controller
             'email' => $request->email,
             'name' => $request->name,
             'password' => bcrypt($request->password),
+            'role' => $request->role
         ]);
         return redirect('')->route('admin.users.index');
     }
@@ -34,12 +35,13 @@ class UserController extends Controller
         $user = User::find($request->id);
         $user->name = $request->name;
         $user->password = bcrypt($request->password);
+        $user->role = $request->role;
         $user->save();
-        return redirect('')->route('admin.users.index');
+        return redirect()->route('admin.users.index');
     }
 
     public function delete($id) {
         User::find($id)->delete();
-        return redirect('')->route('admin.users.index');
+        return redirect()->route('admin.users.index');
     }
 }
