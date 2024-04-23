@@ -37,11 +37,11 @@ class UserController extends Controller
         $user->password = bcrypt($request->password);
         $user->role = $request->role;
         $user->save();
-        return redirect('')->route('admin.users.index');
+        return redirect()->route('admin.users.index');
     }
 
     public function delete($id) {
         User::find($id)->delete();
-        return redirect('')->route('admin.users.index');
+        return redirect()->route('admin.users.index');
     }
 }

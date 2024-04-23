@@ -2,7 +2,7 @@
 
 @section('content')
     <h1>Thêm người dùng</h1>
-    <form method="POST" action="{{ route('admin.user.store') }}">
+    <form method="POST" action="{{ route('admin.users.store') }}">
         @csrf
         <div class="mb-3">
             <label for="name" class="form-label">Tên người dùng</label>
