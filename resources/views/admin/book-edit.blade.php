@@ -2,7 +2,7 @@
 
 @section('content')
     <h1>Sửa tác phẩm</h1>
-    <form method="POST" action="{{ route('admin.books.update') }}" enctype="multipart/form-data">
+    <form method="POST" action="{{ route('admin.books.update') }}" enctype="multipart/form-data" class="mx-3">
         @csrf
         <input type="hidden" name="id" value="{{ $book->id }}">
         <div class="mb-3">
