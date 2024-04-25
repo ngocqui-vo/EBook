@@ -13,6 +13,14 @@
     <link rel="stylesheet" href="{!! url('assets/css/index.css') !!}">
     <script src="{!! url('assets/bootstrap-3.3.4/dist/js/jquery-1.11.3.min.js') !!}"></script> --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <style>   
+        .scrollable-column {
+            height: 100vh;
+            overflow-y: auto; 
+            
+        }
+     
+    </style>
 </head>
 
 <body>
@@ -21,12 +29,10 @@
         <div class="col-md-2">
             @include('layouts.partials.sidebar')
         </div>
-        <div class="col-md-10">
+        <div class="col-md-10 scrollable-column">
             @yield('content')
         </div>
     </div>
-
-
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
