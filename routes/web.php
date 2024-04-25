@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+
+
 Route::group(['namespace' => 'App\Http\Controllers'], function () {
     // Categories
     Route::get('/admin/categories', 'CategoryController@index')->name('admin.categories.index');
@@ -47,8 +50,9 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
     Route::get('/admin/users/edit/{id}', 'UserController@edit')->name('admin.users.edit');
     Route::post('/admin/users/update', 'UserController@update')->name('admin.users.update');
     Route::post('/admin/users/delete/{id}', 'UserController@update')->name('admin.users.delete');
-
-
+    //search
+    Route::get('/', 'HomeController@index')->name('home.index');
+    Route::get('/search', 'HomeController@search')->name('home.search');
     Route::group(['middleware' => ['guest']], function () {
         /**
          * Register Routes
@@ -61,7 +65,6 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
          */
         Route::get('/login', 'LoginController@show')->name('login.show');
         Route::post('/login', 'LoginController@login')->name('login.perform');
-
     });
     Route::group(['middleware' => ['auth']], function () {
         /**
@@ -69,5 +72,4 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
          */
         Route::get('/logout', 'LogoutController@perform')->name('logout.perform');
     });
-    
 });
