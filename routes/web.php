@@ -38,6 +38,11 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
     Route::post('/admin/books/update', 'BookController@update')->name('admin.books.update');
     Route::post('/admin/books/delete/{id}', 'BookController@delete')->name('admin.books.delete');
 
+    // Bookparts
+    Route::get('/admin/books/{id}/bookparts/create', 'BookPartController@create')->name('admin.bookparts.create');
+    Route::post('/admin/books/bookparts/store', 'BookPartController@store')->name('admin.bookparts.store');
+
+
 
 
     Route::group(['middleware' => ['guest']], function () {
