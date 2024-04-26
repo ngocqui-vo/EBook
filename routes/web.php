@@ -43,6 +43,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
     Route::post('/admin/books/bookparts/store', 'BookPartController@store')->name('admin.bookparts.store');
     Route::get('/admin/books/bookparts/edit/{id}', 'BookPartController@edit')->name('admin.bookparts.edit');
     Route::post('/admin/books/bookparts/update', 'BookPartController@update')->name('admin.bookparts.update');
+    Route::get('/admin/books/bookparts/delete/{id}', 'BookPartController@delete')->name('admin.bookparts.delete');
 
 
 

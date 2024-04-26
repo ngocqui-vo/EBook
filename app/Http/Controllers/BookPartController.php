@@ -30,4 +30,11 @@ class BookPartController extends Controller
         $bookpart->save();
         return redirect()->route('admin.books.edit', ['id'=> $bookpart->book_id]);
     }
+
+    public function delete($id) {
+        $bookpart = BookPart::findOrFail($id);
+        $book_id = $bookpart->book_id;
+        $bookpart->delete();
+        return redirect()->route('admin.books.edit', ['id'=> $book_id]);
+    }
 }
