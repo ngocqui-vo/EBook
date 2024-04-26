@@ -17,4 +17,17 @@ class BookPartController extends Controller
         BookPart::create($request->all());
         return redirect()->route('admin.books.edit', ['id' => $request->book_id]);
     }
+
+    public function edit($id) {
+        $bookpart = BookPart::findOrFail($id);
+        return view('admin.bookpart-edit', ['bookpart'=> $bookpart]);
+    }
+
+    public function update(Request $request) {
+        $bookpart = BookPart::findOrFail($request->id);
+        $bookpart->part_number = $request->part_number;
+        $bookpart->part_title = $request->part_title;
+        $bookpart->save();
+        return redirect()->route('admin.books.edit', ['id'=> $bookpart->book_id]);
+    }
 }

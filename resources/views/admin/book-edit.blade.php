@@ -68,7 +68,7 @@
                     <td class="col">{{ $part->part_number }}</td>
                     <td class="col">{{ $part->part_title }}</td>
                     <td>
-                        <a class="btn btn-primary" href="">Sửa</a>  
+                        <a class="btn btn-primary" href="{{ route('admin.bookparts.edit', ['id' => $part->id]) }}">Sửa</a>  
                         <a class="btn btn-danger" href="">Xóa</a>
                     </td>
                 </tr>

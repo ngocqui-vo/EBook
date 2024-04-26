@@ -41,6 +41,9 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
     // Bookparts
     Route::get('/admin/books/{id}/bookparts/create', 'BookPartController@create')->name('admin.bookparts.create');
     Route::post('/admin/books/bookparts/store', 'BookPartController@store')->name('admin.bookparts.store');
+    Route::get('/admin/books/bookparts/edit/{id}', 'BookPartController@edit')->name('admin.bookparts.edit');
+    Route::post('/admin/books/bookparts/update', 'BookPartController@update')->name('admin.bookparts.update');
+
 
 
 
