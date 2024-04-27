@@ -6,9 +6,9 @@
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right hidden-sm">
                 <li>
-                    <form class="navbar-form navbar-left">
+                    <form method="GET" action="{{route('home.search')}}" class="navbar-form navbar-left">
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Nhập tên sách">
+                            <input type="text" name="keyword" class="form-control" placeholder="Nhập tên sách">
                         </div>
                         <button type="submit" class="btn btn-primary">Tìm kiếm</button>
                     </form>
