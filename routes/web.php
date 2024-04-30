@@ -50,9 +50,19 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
     Route::get('/admin/users/edit/{id}', 'UserController@edit')->name('admin.users.edit');
     Route::post('/admin/users/update', 'UserController@update')->name('admin.users.update');
     Route::post('/admin/users/delete/{id}', 'UserController@update')->name('admin.users.delete');
+
+
     //search
     Route::get('/', 'HomeController@index')->name('home.index');
     Route::get('/search', 'HomeController@search')->name('home.search');
+
+    // home
+    Route::get('/categories', 'HomeController@categories')->name('home.categories');
+    Route::get('/categories/{id}', 'HomeController@categoryDetail')->name('home.categoryDetail');
+    Route::get('/authors', 'HomeController@authors')->name('home.authors');
+    Route::get('/authors/{id}', 'HomeController@authorDetail')->name('home.authorDetail');
+
+
     Route::group(['middleware' => ['guest']], function () {
         /**
          * Register Routes
