@@ -28,4 +28,8 @@ class Book extends Model
     public function author() {
         return $this->belongsTo(Author::class);
     }
+
+    public function parts() {
+        return $this->hasMany(BookPart::class);
+    }
 }

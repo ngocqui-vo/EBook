@@ -2,7 +2,7 @@
 
 @section('content')
     <h1>Sửa người dùng</h1>
-    <form method="POST" action="{{ route('admin.user.store') }}">
+    <form method="POST" action="{{ route('admin.users.store') }}">
         @csrf
         <input type="hidden" name="id" value="{{ $user->id }}">
         <div class="mb-3">

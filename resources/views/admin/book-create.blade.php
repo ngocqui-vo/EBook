@@ -2,7 +2,7 @@
 
 @section('content')
     <h1>Thêm tác phẩm</h1>
-    <form method="POST" action="{{ route('admin.books.store') }}" enctype="multipart/form-data">
+    <form method="POST" action="{{ route('admin.books.store') }}" enctype="multipart/form-data" class="mx-3">
         @csrf
         <div class="mb-3">
             <label for="title" class="form-label">Tên tác phẩm</label>

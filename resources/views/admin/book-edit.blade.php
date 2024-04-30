@@ -2,7 +2,7 @@
 
 @section('content')
     <h1>Sửa tác phẩm</h1>
-    <form method="POST" action="{{ route('admin.books.update') }}" enctype="multipart/form-data">
+    <form method="POST" action="{{ route('admin.books.update') }}" enctype="multipart/form-data" class="mx-3">
         @csrf
         <input type="hidden" name="id" value="{{ $book->id }}">
         <div class="mb-3">
@@ -49,4 +49,31 @@
 
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
+
+    <h1>Danh sách tập</h1>
+    <a href="{{ route('admin.bookparts.create', ['id'=> $book->id])}}" class="btn btn-primary">Thêm tập</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Tập số</th>
+                <th scope="col">Tiêu đề tập</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($book->parts as $part)
+                <tr>
+                    <th scope="row">{{ $part->id }}</th>
+                    <td class="col">{{ $part->part_number }}</td>
+                    <td class="col">{{ $part->part_title }}</td>
+                    <td>
+                        <a class="btn btn-primary" href="{{ route('admin.bookparts.edit', ['id' => $part->id]) }}">Sửa</a>  
+                        <a class="btn btn-danger" href="{{ route('admin.bookparts.delete', ['id' => $part->id]) }}">Xóa</a>
+                    </td>
+                </tr>
+            @endforeach
+
+        </tbody>
+    </table>
 @endsection
