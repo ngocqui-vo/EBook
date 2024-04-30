@@ -1,6 +1,5 @@
 @extends('layouts.app-master')
 @section('content')
-    {{ $books }}
     <div class="container">
         <p>Tìm thấy "4" sản phẩm</p>
         <div class="row">
@@ -18,9 +17,9 @@
                                 <span class="text-left text-danger">{{$item->price}} VND</span>
                             </div>
                             <div class="small">
-                                XXX著 / 中国邮电出版社
+                                Lượt xem: {{ $item->view_count }}
                             </div>
-                            <p><a class="btn btn-primary btn-block" role="button" href="bookDetail.html">Chi tiết sách</a>
+                            <p><a class="btn btn-primary btn-block" role="button" href="{{ route('home.bookDetail', ['id' => $item->id]) }}">Chi tiết sách</a>
                             </p>
                             <p><a href="#" class="btn btn-danger btn-block" role="button">Thêm vào giỏ hàng</a></p>
                         </div>

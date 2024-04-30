@@ -10,6 +10,11 @@
     <link rel="stylesheet" href="{!! url('assets/Flat-UI-master/dist/css/flat-ui.min.css') !!}">
     <link rel="stylesheet" href="{!! url('assets/css/index.css') !!}">
     <script src="{!! url('assets/bootstrap-3.3.4/dist/js/jquery-1.11.3.min.js') !!}"></script>
+    <style>
+        * {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
 </head>
 <body>
 
