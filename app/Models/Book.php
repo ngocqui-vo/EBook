@@ -13,6 +13,7 @@ class Book extends Model
         'id',
         'title',
         'price',
+        'view_count',
         'description',
         'image',
         'published_date',

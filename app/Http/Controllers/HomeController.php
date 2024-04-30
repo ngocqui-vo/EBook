@@ -21,6 +21,16 @@ class HomeController extends Controller
         return view('search', ['books' => $books]);
     }
 
+    public function bookDetail($id) {
+        $book = Book::find($id);
+        if ($book) {
+            $book->view_count++;
+            $book->save();
+            return view('book-detail', ['book' => $book]);
+        }
+        return 'not found';
+    }
+
     public function categories() {
         $categories = Category::all();
         return view('categories', ['categories'=> $categories]);
@@ -46,4 +56,6 @@ class HomeController extends Controller
         }
         return 'not found';
     }
+
+    
 }

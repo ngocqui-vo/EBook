@@ -61,6 +61,8 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
     Route::get('/categories/{id}', 'HomeController@categoryDetail')->name('home.categoryDetail');
     Route::get('/authors', 'HomeController@authors')->name('home.authors');
     Route::get('/authors/{id}', 'HomeController@authorDetail')->name('home.authorDetail');
+    Route::get('/books/{id}', 'HomeController@bookDetail')->name('home.bookDetail');
+
 
 
     Route::group(['middleware' => ['guest']], function () {
