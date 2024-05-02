@@ -25,6 +25,8 @@
 </div>
 
 @include('layouts.partials.footer')
+
+@yield('script')
 <script src="{!! url('assets/bootstrap-3.3.4/dist/js/bootstrap.min.js') !!}"></script>
 <script src="{!! url('assets/Flat-UI-master/dist/js/flat-ui.min.js') !!}"></script>
 <script src="{!! url('assets/bootstrap-3.3.4/js/carousel.js') !!}"></script>

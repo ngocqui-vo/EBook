@@ -8,7 +8,8 @@
                     <!-- Wrapper for slides -->
                     <div class="carousel-inner" role="listbox">
                         <div class="item active">
-                            <img src="{{ asset('storage/' . $book->image) }}" alt="" style="height: 500px;width: 100%;">
+                            <img src="{{ asset('storage/' . $book->image) }}" alt=""
+                                style="height: 500px;width: 100%;">
 
                         </div>
                     </div>
@@ -18,7 +19,8 @@
                     <p>Giá: <span class="text-danger">{{ $book->price }} VND</span></p>
                     <p>
                         <a class="btn btn-danger btn-block" role="button" href="#">Mua ngay</a>
-                        <a class="btn btn-warning btn-block" role="button" href="#">Thêm vào giỏ hàng</a>
+                        <button class="btn btn-warning btn-block add-to-cart" role="button"
+                            data-book-id="{{ $book->id }}">Thêm vào giỏ hàng</button>
                     </p>
                 </div>
             </div>
@@ -36,6 +38,14 @@
                         <div>Lượt xem: {{ $book->view_count }}</div>
                         <div>Ngày phát hành: {{ $book->published_date }}</div>
                         <div>Ngày xuất bản: 2024</div>
+                        <div>Tập:
+                            <select name="book_part_id" id="book_part_id">
+                                @foreach ($book->parts as $part)
+                                    <option value="{{ $part->id }}">{{ $part->part_number }} - {{ $part->part_title }}
+                                    </option>
+                                @endforeach
+                            </select>
+                        </div>
                     </div>
                 </div>
                 <div class="panel panel-default">
@@ -50,4 +60,34 @@
 
         </div>
     </div>
+@endsection
+
+@section('script')
+    <script>
+        $(document).ready(function() {
+            
+            $('.add-to-cart').click(function() {
+                var book_part_id = $('#book_part_id').val();
+                $.ajax({
+                    type: "POST",
+                    url: "{{ route('cart.add') }}",
+                    
+                    data: {
+                        book_part_id: book_part_id,
+                        _token: '{{ csrf_token() }}'
+                    },
+                    success: function(response) {
+                        console.log(response)
+                        alert(response); // Hiển thị thông báo thành công
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('Lỗi khi thêm sản phẩm vào giỏ hàng:', error);
+                        alert('Đã xảy ra lỗi, vui lòng thử lại sau');
+                        window.location.href = "{{ route('login.show') }}";
+                    }
+                })
+            })
+
+        })
+    </script>
 @endsection

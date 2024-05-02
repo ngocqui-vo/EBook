@@ -25,6 +25,6 @@ class RegisterController extends Controller
             'password' => bcrypt($request->password),
         ]);
         auth()->login($user);
-        return redirect('')->route('home.index');
+        return redirect()->route('home.index');
     }
 }

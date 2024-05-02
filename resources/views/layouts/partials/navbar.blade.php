@@ -26,11 +26,11 @@
                 </li>
                 @endauth
                 <li>
-                    <a href="cart.html"><span class="glyphicon glyphicon-shopping-cart">Giỏ hàng</span></a>
+                    <a href="{{ route('cart.cartDetail') }}"><span class="glyphicon glyphicon-shopping-cart">Giỏ hàng</span></a>
                 </li>
                 @guest
-                <li><a href="login.html">Đăng nhập</a></li>
-                <li><a href="register.html">Đăng ký</a></li>
+                <li><a href="{{ route('login.show') }}">Đăng nhập</a></li>
+                <li><a href="{{ route('register.show') }}">Đăng ký</a></li>
                 @endguest
                 {{-- <li>
                     <a href="center.html">Chào mừng, user</a>

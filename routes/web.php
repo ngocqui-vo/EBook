@@ -92,5 +92,12 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
          * Logout Routes
          */
         Route::get('/logout', 'LogoutController@perform')->name('logout.perform');
+
+        // cart
+        Route::post('/cart/add', 'CartController@add')->name('cart.add');
+        Route::post('/cart/test', 'CartController@test')->name('cart.test');
+        Route::get('/cart/cartDetail', 'CartController@cartDetail')->name('cart.cartDetail');
+
+        
     });
 });
