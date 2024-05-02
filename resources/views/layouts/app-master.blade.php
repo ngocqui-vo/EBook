@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="{!! url('assets/bootstrap-3.3.4/dist/css/bootstrap.min.css') !!}">
     <link rel="stylesheet" href="{!! url('assets/Flat-UI-master/dist/css/flat-ui.min.css') !!}">
     <link rel="stylesheet" href="{!! url('assets/css/index.css') !!}">
-    <script src="{!! url('assets/bootstrap-3.3.4/dist/js/jquery-1.11.3.min.js') !!}"></script>
+    
     <style>
         * {
             font-family: Arial, Helvetica, sans-serif;
@@ -26,9 +26,10 @@
 
 @include('layouts.partials.footer')
 
-@yield('script')
+<script src="{!! url('assets/bootstrap-3.3.4/dist/js/jquery-1.11.3.min.js') !!}"></script>
 <script src="{!! url('assets/bootstrap-3.3.4/dist/js/bootstrap.min.js') !!}"></script>
 <script src="{!! url('assets/Flat-UI-master/dist/js/flat-ui.min.js') !!}"></script>
 <script src="{!! url('assets/bootstrap-3.3.4/js/carousel.js') !!}"></script>
+@yield('script')
 </body>
 </html>

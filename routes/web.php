@@ -97,6 +97,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
         Route::post('/cart/add', 'CartController@add')->name('cart.add');
         Route::post('/cart/test', 'CartController@test')->name('cart.test');
         Route::get('/cart/cartDetail', 'CartController@cartDetail')->name('cart.cartDetail');
+        Route::post('/cart/cartRemove', 'CartController@removeCartItem')->name('cart.cartRemove');
 
         
     });
