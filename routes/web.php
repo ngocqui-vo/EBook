@@ -99,7 +99,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
         Route::get('/cart/cartDetail', 'CartController@cartDetail')->name('cart.cartDetail');
         Route::post('/cart/cartRemove', 'CartController@removeCartItem')->name('cart.cartRemove');
         Route::get('/cart/orderConfirm', 'CartController@orderConfirm')->name('cart.orderConfirm');
-        Route::get('/cart/payment', 'CartController@payment')->name('cart.payment');
+        Route::post('/cart/payment', 'CartController@payment')->name('cart.payment');
 
         
     });

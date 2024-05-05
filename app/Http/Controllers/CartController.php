@@ -92,14 +92,14 @@ class CartController extends Controller
     public function payment() {
         $cartSession = session()->get('cart');
         $currentUser = auth()->user();
-        $cart = Cart::create();
+        $cart = Cart::create(['user_id' => $currentUser->id]);
         $cart->save();
-        $cart->user_id = $currentUser->id;
         foreach($cartSession as $item) {
-            $cartItem = CartItem::create();
-            $cartItem->cart_id = $cart->id;
-            $cartItem->book_part_id = $item['part_id'];
-            $cartItem->quantity = $item['quantity'];
+            $cartItem = CartItem::create([
+                    'cart_id' => $cart->id,
+                    'book_part_id' => $item['part_id'],
+                    'quantity' => $item['quantity']
+                ]);
             $cartItem->save();
         }
         return view('buy-success');
