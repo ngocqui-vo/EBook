@@ -36,6 +36,9 @@ class Book extends Model
     public function parts() {
         return $this->hasMany(BookPart::class);
     }
+    public function followBooks() {
+        return $this->hasMany(UserFollowBook::class);
+    }
     public function getBookById($id) {
       
     return self::find($id);;

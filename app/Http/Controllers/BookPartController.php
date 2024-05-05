@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Book;
 use App\Models\BookPart;
+use App\Models\UserFollowBook;
 use Illuminate\Http\Request;
 
 class BookPartController extends Controller
@@ -37,4 +38,6 @@ class BookPartController extends Controller
         $bookpart->delete();
         return redirect()->route('admin.books.edit', ['id'=> $book_id]);
     }
+
+    
 }

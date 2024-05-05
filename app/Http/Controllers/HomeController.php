@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Book;
 use App\Models\Author;
 use App\Models\Category;
+use App\Models\UserFollowBook;
 use Illuminate\Http\Request;
 use App\Models\Review;
 
@@ -44,7 +45,18 @@ class HomeController extends Controller
             
             $book->view_count++;
             $book->save();
-            return view('book-detail', ['book' => $book, 'rating' => $rating]);
+
+            $user = auth()->user();
+            $userFollowBook = UserFollowBook::where([
+                'user_id' => $user->id,
+                'book_id' => $book->id
+            ])->first();
+
+            return view('book-detail', [
+                'book' => $book, 
+                'rating' => $rating,
+                'userFollowBook' => $userFollowBook
+            ]);
         }
         return 'not found';
     }

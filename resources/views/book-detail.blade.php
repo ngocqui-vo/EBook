@@ -19,7 +19,7 @@
                         <h4 class="text-center">{{ $book->title }}</h4>
                         <p class="text-center">Giá: <span class="text-danger">{{ $book->price }} VND</span></p>
                         <div class="text-center">
-                            <a class="btn btn-danger btn-block" role="button" href="#">Mua ngay</a>
+                            <a class="btn btn-danger btn-block" role="button" href="{{ route('book.followBook', ['id' => $book->id]) }}">{{ $userFollowBook ? 'Bỏ theo dõi' : 'Theo dõi' }}</a>
                             <button class="btn btn-warning btn-block add-to-cart" role="button"
                                 data-book-id="{{ $book->id }}">Thêm vào giỏ hàng</button>
                         </div>

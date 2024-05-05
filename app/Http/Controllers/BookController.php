@@ -6,6 +6,7 @@ use App\Models\Book;
 use App\Models\Author;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use App\Models\UserFollowBook;
 
 class BookController extends Controller
 {
@@ -82,5 +83,23 @@ class BookController extends Controller
         $book = Book::find($id);
         $book->delete();
         return redirect()->route('admin.books.index');
+    }
+
+    public function followBook($id) {
+        $user = auth()->user();
+        $userFollowBook = UserFollowBook::where('user_id', $user->id)->first();
+
+        if (!$userFollowBook) {
+            $userFollowBook = UserFollowBook::create([
+                'user_id' => $user->id,
+                'book_id' => $id
+            ]);
+            $userFollowBook->save();
+        }
+        else {
+            $userFollowBook->delete();
+        }
+        
+        return back();
     }
 }
