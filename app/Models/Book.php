@@ -21,6 +21,10 @@ class Book extends Model
         'author_id',
     ];
 
+    public function reviews() {
+        return $this->hasMany(Review::class);
+    }
+
     public function category() {
         return $this->belongsTo(Category::class);
     }
@@ -31,5 +35,13 @@ class Book extends Model
 
     public function parts() {
         return $this->hasMany(BookPart::class);
+    }
+    public function getBookById($id) {
+      
+    return self::find($id);;
+    }
+    public function getAllBooks() {
+      
+    return self::all();
     }
 }

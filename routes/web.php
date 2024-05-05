@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -40,16 +39,18 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
     Route::get('/admin/books/edit/{id}', 'BookController@edit')->name('admin.books.edit');
     Route::post('/admin/books/update', 'BookController@update')->name('admin.books.update');
     Route::post('/admin/books/delete/{id}', 'BookController@delete')->name('admin.books.delete');
-
+    
     // Bookparts
     Route::get('/admin/books/{id}/bookparts/create', 'BookPartController@create')->name('admin.bookparts.create');
     Route::post('/admin/books/bookparts/store', 'BookPartController@store')->name('admin.bookparts.store');
     Route::get('/admin/books/bookparts/edit/{id}', 'BookPartController@edit')->name('admin.bookparts.edit');
     Route::post('/admin/books/bookparts/update', 'BookPartController@update')->name('admin.bookparts.update');
     Route::get('/admin/books/bookparts/delete/{id}', 'BookPartController@delete')->name('admin.bookparts.delete');
-
-
-
+    
+    
+    
+    //Book details
+    Route::get('/details/{id}', 'HomeController@details')->name('details');
 
 
     // Users
@@ -92,6 +93,8 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
          * Logout Routes
          */
         Route::get('/logout', 'LogoutController@perform')->name('logout.perform');
+        Route::post('/comment', 'HomeController@review')->name('home.review');
+
 
         // cart
         Route::post('/cart/add', 'CartController@add')->name('cart.add');
@@ -104,3 +107,4 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
         
     });
 });
+
