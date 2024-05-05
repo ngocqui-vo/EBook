@@ -71,37 +71,16 @@
                 </div>
             </div>
 
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    Tóm lượt
-                </div>
-                <div class="panel-body">
-                    <p>{{ $book->description }}</p>
-                    <div class="like" data-product-id="{{ $book->id }}"></div>
-                </div>
-            </div>
+            
 
-            @foreach ($book->reviews as $review)
-            <div class="panel panel-info">
-                <div class="panel-heading">
-                    <h4>{{ $review->user->name }} - 
-                        @for ($i = 0; $i < $review->rating; $i++)
-                        <span style="color: yellow; font-size: 1.2em">★</span>
-                        @endfor
-                    </h4>
-                </div>
-                <div class="panel-body">
-                    <p>{{ $review->comment }}</p>
-                </div>
-            </div>
-            @endforeach
+            
         </div>
 
         <div class="col-md-4">
             <form action="{{ route('home.review') }}" method="POST">
                 @csrf
                 <input type="hidden" name="book_id" value="{{ $book->id }}">
-                <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                <input type="hidden" name="user_id" value="{{ Auth::user() ? Auth::user()->id : '' }}">
                 <div class="product-add-review">
                     <h4 class="text-center">Viết đánh giá của bạn</h4>
                     <div class="review-table">
@@ -142,6 +121,42 @@
                     </div>
                 </div>
             </form>
+        </div>
+        
+        
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Tóm lượt
+                </div>
+                <div class="panel-body">
+                    <p>{{ $book->description }}</p>
+                    <div class="like" data-product-id="{{ $book->id }}"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        
+        <div class="col-md-12">
+            <h2>Đánh giá</h2>
+            @foreach ($book->reviews as $review)
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h4>{{ $review->user->name }} - 
+                        @for ($i = 0; $i < $review->rating; $i++)
+                        <span style="color: yellow; font-size: 1.2em">★</span>
+                        @endfor
+                    </h4>
+                </div>
+                <div class="panel-body">
+                    <p>{{ $review->comment }}</p>
+                </div>
+            </div>
+            @endforeach
         </div>
     </div>
 </div>

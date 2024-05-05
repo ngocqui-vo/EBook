@@ -27,7 +27,10 @@ class HomeController extends Controller
         foreach($reviews as $review) {
             $rating = $rating + $review->rating;
         }
-        $rating = $rating / $reviews->count();
+        if ($reviews->count())
+            $rating = $rating / $reviews->count();
+        else 
+            $rating = 0;
         return view('details', ['book' => $book, 'rating' => $rating]);
     }
     // public function review(Request $request)
