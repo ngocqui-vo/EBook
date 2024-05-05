@@ -5,6 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title')</title>
     <link rel="stylesheet" href="{!! url('assets/bootstrap-3.3.4/dist/css/bootstrap.min.css') !!}">
     <link rel="stylesheet" href="{!! url('assets/Flat-UI-master/dist/css/flat-ui.min.css') !!}">
@@ -23,5 +24,6 @@
 <script src="{!! url('assets/bootstrap-3.3.4/dist/js/bootstrap.min.js') !!}"></script>
 <script src="{!! url('assets/Flat-UI-master/dist/js/flat-ui.min.js') !!}"></script>
 <script src="{!! url('assets/bootstrap-3.3.4/js/carousel.js') !!}"></script>
+{{-- <script src="{{asset('assets/js/ajax.js')}}"></script> --}}
 </body>
 </html>
