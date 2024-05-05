@@ -42,11 +42,11 @@
                             <div class="thumbnail">
                                 <a href="#">
                                     <img style="width: 100%; height: 200px; display: block;" alt="100%x200"
-                                    src="{{$item->image}}"
+                                    src="{{ asset('storage/' . $item->image) }}"
                                     data-src="holder.js/100%x200" data-holder-rendered="true">
                                 </a>
                                 <div class="caption">
-                                    <a href="{{ url("/details/".$item->id) }}">
+                                    <a href="{{ route('home.bookDetail', ['id' => $item->id]) }}">
                                         <div class="text-left">{{$item->title}}</div>
                                     </a>
 
@@ -56,7 +56,7 @@
                                     <div class="small">
                                         XXX著 / 中国邮电出版社
                                     </div>
-                                    <p><a class="btn btn-primary btn-block" role="button" href="{{ url("/details/".$item->id) }}">Chi
+                                    <p><a class="btn btn-primary btn-block" role="button" href="{{ route('home.bookDetail', ['id' => $item->id]) }}">Chi
                                         tiết sách</a>
                                     </p>
                                     <p><a href="#" class="btn btn-danger btn-block" role="button">Thêm vào giỏ

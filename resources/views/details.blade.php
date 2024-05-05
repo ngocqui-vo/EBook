@@ -40,10 +40,11 @@
             <div class="thumbnail">
                 <div class="caption">
                     <h4 class="text-center">{{ $book->title }}</h4>
-                    <p class="text-center">Giá: <span class="text-danger">43.55 VND</span></p>
+                    <p class="text-center">Giá: <span class="text-danger">{{ $book->price }} VND</span></p>
                     <div class="text-center">
-                        <a class="btn btn-danger" role="button" href="#">Mua ngay</a>
-                        <a class="btn btn-warning" role="button" href="#">Thêm vào giỏ hàng</a>
+                        <a class="btn btn-danger btn-block" role="button" href="#">Mua ngay</a>
+                        <button class="btn btn-warning btn-block add-to-cart" role="button"
+                        data-book-id="{{ $book->id }}">Thêm vào giỏ hàng</button>
                     </div>
                 </div>
             </div>
@@ -58,15 +59,20 @@
                 </div>
                 <div class="panel-body">
                     <ul class="list-unstyled">
-                        <li><strong>Tác giả:</strong> Áo Nhĩ Lương Khảo Tầm Ngư Bảo</li>
-                        <li><strong>Nhà xuất bản:</strong> Kim đồng</li>
-                        <li><strong>ISBN:</strong> 9787111616801</li>
+                        <li><strong>Tác giả:</strong> {{ $book->author->bio }}</li>
                         <li><strong>Ngày phát hành:</strong> {{ $book->published_date }}</li>
                         <li><strong>Ngày xuất bản:</strong> 2024</li>
-                        <li><strong>Số trang:</strong> 355</li>
-                        <li><strong>Phiên bản:</strong> 1-1</li>
-                        <li><strong>Danh mục:</strong> Tiểu thuyết</li>
+                        <li><strong>Danh mục:</strong> {{ $book->category->name }}</li>
+                        <div><strong>Lượt xem:</strong> {{ $book->view_count }}</div>
                         <li><strong>Sao:</strong> {{ $rating }} <span style="color: yellow; font-size: 1.2em">★</span></li>
+                        <div>Tập:
+                            <select name="book_part_id" id="book_part_id">
+                                @foreach ($book->parts as $part)
+                                    <option value="{{ $part->id }}">{{ $part->part_number }} - {{ $part->part_title }}
+                                    </option>
+                                @endforeach
+                            </select>
+                        </div>
                     </ul>
                 </div>
             </div>
@@ -160,4 +166,34 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('script')
+    <script>
+        $(document).ready(function() {
+            
+            $('.add-to-cart').click(function() {
+                var book_part_id = $('#book_part_id').val();
+                $.ajax({
+                    type: "POST",
+                    url: "{{ route('cart.add') }}",
+                    
+                    data: {
+                        book_part_id: book_part_id,
+                        _token: '{{ csrf_token() }}'
+                    },
+                    success: function(response) {
+                        console.log(response)
+                        alert(response); // Hiển thị thông báo thành công
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('Lỗi khi thêm sản phẩm vào giỏ hàng:', error);
+                        alert('Đã xảy ra lỗi, vui lòng thử lại sau');
+                        window.location.href = "{{ route('login.show') }}";
+                    }
+                })
+            })
+
+        })
+    </script>
 @endsection

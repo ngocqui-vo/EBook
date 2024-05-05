@@ -47,11 +47,6 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
     Route::post('/admin/books/bookparts/update', 'BookPartController@update')->name('admin.bookparts.update');
     Route::get('/admin/books/bookparts/delete/{id}', 'BookPartController@delete')->name('admin.bookparts.delete');
     
-    
-    
-    //Book details
-    Route::get('/details/{id}', 'HomeController@details')->name('details');
-
 
     // Users
     Route::get('/admin/users', 'UserController@index')->name('admin.users.index');
