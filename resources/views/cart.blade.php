@@ -80,8 +80,8 @@
             </div>
 
             <div class="col-sm-offset-9 col-sm-3" style="padding-bottom: 15px;">
-                <button class="btn btn-success">Tiếp tục mua</button>
-                <button class="btn btn-danger">Đặt hàng</button>
+                <a class="btn btn-success" href="{{ route('home.index') }}">Tiếp tục mua</a>
+                <a class="btn btn-danger" href="{{ route('cart.orderConfirm') }}">Đặt hàng</a>
             </div>
         </div>
     </div>

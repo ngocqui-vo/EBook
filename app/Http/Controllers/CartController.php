@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\BookPart;
+use App\Models\Cart;
+use App\Models\CartItem;
 use Illuminate\Http\Request;
 
 class CartController extends Controller
@@ -35,10 +37,11 @@ class CartController extends Controller
         return 'fail to add item to cart';
     }
 
-    public function cartDetail() {
+    public function cartDetail()
+    {
         $cart = session()->get('cart');
         return view('cart', ['cart' => $cart ? $cart : []]);
-       
+
     }
 
     public function removeCartItem(Request $request)
@@ -54,7 +57,7 @@ class CartController extends Controller
             $total_price = 0;
 
             $cart = session()->get('cart');
-            foreach($cart as $item) {
+            foreach ($cart as $item) {
                 $total_quantity += $item['quantity'];
                 $total_price += $item['price'];
             }
@@ -70,4 +73,36 @@ class CartController extends Controller
         return response()->json(['error' => 'Sản phẩm không tồn tại trong giỏ hàng'], 404);
     }
 
+    public function orderConfirm()
+    {
+        $total_price = 0;
+
+        $cart = session()->get('cart');
+
+        if (!$cart) {
+            return 'giỏ hàng chưa có sản phẩm';
+        }
+
+        foreach ($cart as $item) {
+            $total_price += $item['price'];
+        }
+        return view('buy', ['total_price' => $total_price]);
+    }
+
+    public function payment() {
+        $cartSession = session()->get('cart');
+        $currentUser = auth()->user();
+        $cart = Cart::create();
+        $cart->save();
+        $cart->user_id = $currentUser->id;
+        foreach($cartSession as $item) {
+            $cartItem = CartItem::create();
+            $cartItem->cart_id = $cart->id;
+            $cartItem->book_part_id = $item['part_id'];
+            $cartItem->quantity = $item['quantity'];
+            $cartItem->save();
+        }
+        return view('buy-success');
+
+    }
 }
