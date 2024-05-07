@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Book;
 use App\Models\BookPart;
-use App\Models\UserFollowBook;
 use Illuminate\Http\Request;
+use App\Models\UserFollowBook;
+use App\Jobs\SendBookPartNotification;
 
 class BookPartController extends Controller
 {
@@ -15,7 +16,9 @@ class BookPartController extends Controller
     }
 
     public function store(Request $request) {
-        BookPart::create($request->all());
+        $bookPart = BookPart::create($request->all());
+        // code gửi mail ở đây
+        dispatch(new SendBookPartNotification($bookPart));
         return redirect()->route('admin.books.edit', ['id' => $request->book_id]);
     }
 

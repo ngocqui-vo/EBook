@@ -1,9 +1,10 @@
 <?php
 
-use App\Models\BookPart;
 use App\Models\User;
-use App\Notifications\BookPartPublished;
+use App\Models\BookPart;
 use Illuminate\Support\Facades\Route;
+use App\Jobs\SendBookPartNotification;
+use App\Notifications\BookPartPublished;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
 
 
 Route::group(['namespace' => 'App\Http\Controllers'], function () {
