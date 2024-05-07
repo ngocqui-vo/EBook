@@ -34,4 +34,8 @@ class Cart extends Model
         }
         return $total_price;
     }
+
+    public function deliveries() {
+        return $this->hasMany(Delivery::class);
+    }
 }

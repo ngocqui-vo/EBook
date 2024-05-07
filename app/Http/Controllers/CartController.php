@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\BookPart;
 use App\Models\Cart;
 use App\Models\CartItem;
+use App\Models\Delivery;
 use Illuminate\Http\Request;
 
 class CartController extends Controller
@@ -89,11 +90,19 @@ class CartController extends Controller
         return view('buy', ['total_price' => $total_price]);
     }
 
-    public function payment() {
+    public function payment(Request $request) {
         $cartSession = session()->get('cart');
         $currentUser = auth()->user();
         $cart = Cart::create(['user_id' => $currentUser->id]);
         $cart->save();
+
+        Delivery::create([
+            'cart_id' => $cart->id,
+            'name' => $request->input('name'),
+            'phone' => $request->input('phone'),
+            'address' => $request->input('address')
+
+        ])->save();
         foreach($cartSession as $item) {
             $cartItem = CartItem::create([
                     'cart_id' => $cart->id,
@@ -104,5 +113,11 @@ class CartController extends Controller
         }
         return view('buy-success');
 
+    }
+
+    public function orderDetail($id) {
+        $cart = Cart::find($id);
+        $delivery = $cart->deliveries->first();
+        return view('order-detail', ['cart' => $cart, 'delivery' => $delivery]);
     }
 }

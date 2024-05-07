@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -57,5 +58,20 @@ class UserController extends Controller
         }
         
         return view('center', ['user' => $user]);
+    }
+
+    public function changePassword(Request $request) {
+        $request->validate([
+            'old_password' => 'required',
+            'new_password' => 'required',
+            'confirm_password' => 'required|same:password'
+        ]);
+        $user = auth()->user();
+        if ($user && Hash::check($request->input('old_password'), $user->password)) {
+            $user->password = $request->input('new_password');
+            $user->save();
+            return view('auth.change-password-success');
+        }
+        return redirect()->route('home.index');
     }
 }

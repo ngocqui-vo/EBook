@@ -16,6 +16,7 @@
             font-family: Arial, Helvetica, sans-serif;
         }
     </style>
+    @yield('style')
 </head>
 <body>
 

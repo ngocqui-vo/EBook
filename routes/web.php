@@ -99,10 +99,13 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
         Route::post('/cart/cartRemove', 'CartController@removeCartItem')->name('cart.cartRemove');
         Route::get('/cart/orderConfirm', 'CartController@orderConfirm')->name('cart.orderConfirm');
         Route::post('/cart/payment', 'CartController@payment')->name('cart.payment');
+        Route::get('/cart/orderDetail/{id}', 'CartController@orderDetail')->name('cart.orderDetail');
 
 
         // user
         Route::get('/user/center', 'UserController@center')->name('user.center');
+        Route::post('/user/changePassword', 'UserController@changePassword')->name('user.changePassword');
+
 
 
         // follow book
