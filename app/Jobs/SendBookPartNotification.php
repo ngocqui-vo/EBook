@@ -30,13 +30,15 @@ class SendBookPartNotification implements ShouldQueue
     public function handle(): void
     {
         $book = $this->bookPart->book;
+        
         // Lấy danh sách users đã đăng ký cho phần sách
-        $subscribedUsers = User::all();
+        $subscribedUsers = $book->userFollows;
 
-        foreach ($subscribedUsers as $user) {
+        foreach ($subscribedUsers as $userfollow) {
+            $email = $userfollow->user->email;
             // Gửi email cho từng user
             // Example email sending logic
-            \Mail::to($user->email)->send(new BookPartNotification($this->bookPart));
+            \Mail::to($email)->send(new BookPartNotification($this->bookPart));
         }
     }
 }

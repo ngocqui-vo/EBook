@@ -17,6 +17,7 @@ class BookPartController extends Controller
 
     public function store(Request $request) {
         $bookPart = BookPart::create($request->all());
+        $users = $bookPart->book->userFollows;
         // code gửi mail ở đây
         dispatch(new SendBookPartNotification($bookPart));
         return redirect()->route('admin.books.edit', ['id' => $request->book_id]);

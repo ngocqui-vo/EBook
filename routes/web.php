@@ -18,7 +18,6 @@ use App\Notifications\BookPartPublished;
 */
 
 
-
 Route::group(['namespace' => 'App\Http\Controllers'], function () {
     // Categories
     Route::get('/admin/categories', 'CategoryController@index')->name('admin.categories.index');

@@ -36,7 +36,7 @@ class Book extends Model
     public function parts() {
         return $this->hasMany(BookPart::class);
     }
-    public function followBooks() {
+    public function userFollows() {
         return $this->hasMany(UserFollowBook::class);
     }
     public function getBookById($id) {

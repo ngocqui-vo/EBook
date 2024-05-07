@@ -2,13 +2,14 @@
 
 namespace App\Mail;
 
+use App\Models\User;
 use App\Models\BookPart;
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
-use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Mail\Mailables\Envelope;
+use Illuminate\Contracts\Queue\ShouldQueue;
 
 class BookPartNotification extends Mailable
 {
@@ -28,32 +29,32 @@ class BookPartNotification extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Book Part Notification',
+            subject: 'Book Part Notification'
         );
     }
 
     /**
      * Get the message content definition.
      */
-    public function content(): Content
-    {
+    // public function content(): Content
+    // {
 
-        // Chuyển đổi biến thành các biến cục bộ trong file view
-        // extract(['bookPart' => $bookPart]);
+    //     // Chuyển đổi biến thành các biến cục bộ trong file view
+    //     // extract(['bookPart' => $bookPart]);
 
-        // Bắt đầu bộ nhớ đệm đầu ra
-        // ob_start();
+    //     // Bắt đầu bộ nhớ đệm đầu ra
+    //     // ob_start();
 
-        // Bao gồm nội dung của view
-        // $viewContent = view('emails.book_part_notification', ['bookPart' => $this->bookPart]);
+    //     // Bao gồm nội dung của view
+    //     // $viewContent = view('emails.book_part_notification', ['bookPart' => $this->bookPart]);
 
-        // Lấy nội dung từ bộ nhớ đệm đầu ra
-        // $content = ob_get_clean();
+    //     // Lấy nội dung từ bộ nhớ đệm đầu ra
+    //     // $content = ob_get_clean();
 
-        return new Content(
-            view: 'emails.book_part_notification'
-        );
-    }
+    //     return new Content(
+    //         view: 'emails.book_part_notification'
+    //     );
+    // }
 
     /**
      * Get the attachments for the message.
