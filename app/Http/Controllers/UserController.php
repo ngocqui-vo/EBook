@@ -44,4 +44,18 @@ class UserController extends Controller
         User::find($id)->delete();
         return redirect()->route('admin.users.index');
     }
+
+    public function center() {
+        $user = auth()->user();
+        $carts = $user->carts;
+
+        $total = 0;
+        $total_price = 0;
+        foreach($carts as $cart) {
+            $total += $cart->totalItems();
+            $total_price += $cart->totalPrice();
+        }
+        
+        return view('center', ['user' => $user]);
+    }
 }

@@ -22,7 +22,7 @@
                 </li>
                 @auth
                 <li>
-                    <a href="center.html">Chào mừng, {{ auth()->user()->email }}</a>
+                    <a href="{{ route('user.center' )}}">Chào mừng, {{ auth()->user()->email }}</a>
                 </li>
                 @endauth
                 <li>
