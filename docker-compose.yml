@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: php artisan serve --host=0.0.0.0 --port=8000
+    ports:
+      - "8000:8000"  # Adjust port as needed
+    volumes:
+      - .:/var/www/html
+    depends_on:
+      - db
+
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_DATABASE: ebook
+      MYSQL_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "3306:3306"  # Expose MySQL port
+    volumes:
+      - dbdata:/var/lib/mysql
+
+volumes:
+  dbdata:

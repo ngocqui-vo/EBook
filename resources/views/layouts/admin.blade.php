@@ -26,10 +26,10 @@
 <body>
     {{-- @include('layouts.partials.admin-navbar') --}}
     <div class="d-flex">
-        <div class="col-md-2">
+        <div class="col-sm-3">
             @include('layouts.partials.sidebar')
         </div>
-        <div class="col-md-10 scrollable-column">
+        <div class="col-sm-9 scrollable-column">
             @yield('content')
         </div>
     </div>
