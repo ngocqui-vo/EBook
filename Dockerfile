@@ -1,4 +1,4 @@
-# Sử dụng PHP 7.4 làm base image
+# Sử dụng PHP 8.2 làm base image
 FROM php:8.2-fpm
 
 # Cài đặt các gói cần thiết
