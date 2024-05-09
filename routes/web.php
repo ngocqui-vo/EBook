@@ -103,6 +103,10 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
         Route::post('/cart/payment', 'CartController@payment')->name('cart.payment');
         Route::get('/cart/orderDetail/{id}', 'CartController@orderDetail')->name('cart.orderDetail');
 
+        // statistic
+        Route::get('/admin/statistics', 'StatisticController@index')->name('admin.statistic');
+
+
 
         // user
         Route::get('/user/center', 'UserController@center')->name('user.center');
