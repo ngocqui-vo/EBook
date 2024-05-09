@@ -39,6 +39,14 @@
                 Người dùng
             </a>
         </li>
+        <li>
+            <a href="{{ route('admin.statistic') }}" class="nav-link text-white">
+                <svg class="bi me-2" width="16" height="16">
+                    <use xlink:href="#grid" />
+                </svg>
+                Thống kê doanh thu
+            </a>
+        </li>
     </ul>
     <hr>
     <div class="dropdown">

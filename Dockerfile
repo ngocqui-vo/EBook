@@ -1,16 +1,19 @@
 # Sử dụng PHP 8.2 làm base image
+
 FROM php:8.2-fpm
 
 # Cài đặt các gói cần thiết
 RUN apt-get update && \
     apt-get install -y \
-        libzip-dev \
-        zip \
-        unzip \
-        git \
-        && docker-php-ext-install pdo_mysql zip
+    libzip-dev \
+    zip \
+    unzip \
+    git \
+    && docker-php-ext-install pdo_mysql zip
+
 
 # Thiết lập thư mục làm việc
+
 WORKDIR /var/www
 
 # Cài đặt Composer

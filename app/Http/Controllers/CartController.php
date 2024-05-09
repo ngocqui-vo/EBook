@@ -111,6 +111,7 @@ class CartController extends Controller
                 ]);
             $cartItem->save();
         }
+        session()->forget('cart');
         return view('buy-success');
 
     }
