@@ -1,8 +1,7 @@
 <div class="navbar navbar-default">
     <div class="container">
         <div class="navbar-header">
-            <a href="{{ route('home.index') }}" class="navbar-brand">EBook</a>
-            
+            <a href="{{ route('home.index') }}" class="navbar-brand">EBook</a>     
         </div>
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right hidden-sm">

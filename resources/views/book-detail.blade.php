@@ -158,12 +158,12 @@
                     },
                     success: function(response) {
                         console.log(response)
-                        alert('Đặt hàng thành công'); // Hiển thị thông báo thành công
+                        alert('Thêm vào giỏ hàng thành công'); // Hiển thị thông báo thành công
                     },
                     error: function(xhr, status, error) {
                         console.error('Lỗi khi thêm sản phẩm vào giỏ hàng:', error);
                         alert('Đã xảy ra lỗi, vui lòng thử lại sau');
-                        window.location.href = "{{ route('login.show') }}";
+                        
                     }
                 })
             })

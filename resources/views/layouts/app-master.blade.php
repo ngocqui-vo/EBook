@@ -26,7 +26,6 @@
     @yield('content')
 </div>
 
-@include('layouts.partials.footer')
 
 
 <script src="{!! url('assets/bootstrap-3.3.4/dist/js/jquery-1.11.3.min.js') !!}"></script>

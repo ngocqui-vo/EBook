@@ -13,6 +13,9 @@ class CartController extends Controller
     public function add(Request $request)
     {
         $part_id = $request->input('book_part_id');
+        if (!$part_id) {
+            return 'fail to add item to cart';
+        }
         $part = BookPart::find($part_id);
 
         if ($part) {

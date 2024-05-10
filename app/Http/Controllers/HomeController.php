@@ -38,22 +38,24 @@ class HomeController extends Controller
 
             if ($reviews->count()) {
                 $rating = $rating / $reviews->count();
-            }
-            else {
+            } else {
                 $rating = 0;
             }
-            
+
             $book->view_count++;
             $book->save();
 
             $user = auth()->user();
-            $userFollowBook = UserFollowBook::where([
-                'user_id' => $user->id,
-                'book_id' => $book->id
-            ])->first();
+            if ($user) {
+                $userFollowBook = UserFollowBook::where([
+                    'user_id' => $user->id,
+                    'book_id' => $book->id
+                ])->first();
+            }
+
 
             return view('book-detail', [
-                'book' => $book, 
+                'book' => $book,
                 'rating' => $rating,
                 'userFollowBook' => $userFollowBook
             ]);
