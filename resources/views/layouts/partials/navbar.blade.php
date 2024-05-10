@@ -1,7 +1,7 @@
 <div class="navbar navbar-default">
     <div class="container">
         <div class="navbar-header">
-            <a href="index.html" class="navbar-brand">EBook</a>
+            <a href="{{ route('home.index') }}" class="navbar-brand">EBook</a>
             
         </div>
         <div class="collapse navbar-collapse">
@@ -21,8 +21,8 @@
                     </form>
                 </li>
                 @auth
-                <li>
-                    <a href="{{ route('user.center' )}}">Chào mừng, {{ auth()->user()->email }}</a>
+                <li>                 
+                    <a href="{{ route('user.center' )}}">{{ auth()->user()->name }}</a>
                 </li>
                 @endauth
                 <li>

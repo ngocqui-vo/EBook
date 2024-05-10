@@ -43,7 +43,7 @@
                                 <a href="#">
                                     <img style="width: 100%; height: 200px; display: block;" alt="100%x200"
                                     src="{{ asset('storage/' . $item->image) }}"
-                                    data-src="holder.js/100%x200" data-holder-rendered="true">
+                                     data-holder-rendered="true">
                                 </a>
                                 <div class="caption">
                                     <a href="{{ route('home.bookDetail', ['id' => $item->id]) }}">

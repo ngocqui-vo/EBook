@@ -158,7 +158,7 @@
                     },
                     success: function(response) {
                         console.log(response)
-                        alert(response); // Hiển thị thông báo thành công
+                        alert('Đặt hàng thành công'); // Hiển thị thông báo thành công
                     },
                     error: function(xhr, status, error) {
                         console.error('Lỗi khi thêm sản phẩm vào giỏ hàng:', error);
