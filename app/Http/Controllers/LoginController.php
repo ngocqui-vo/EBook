@@ -21,9 +21,16 @@ class LoginController extends Controller
         $credentials = $request->only("email","password");
         // Thử xác thực người dùng
         if (Auth::attempt($credentials)) {
-            // Xác thực thành công, người dùng đã đăng nhập
-            // Thực hiện hành động tiếp theo sau khi đăng nhập thành công
-            return redirect()->intended('/');
+            $user = Auth::user(); // Lấy thông tin người dùng sau khi đăng nhập
+
+            // Kiểm tra vai trò của người dùng và chuyển hướng tương ứng
+            if ($user->role === 1) {
+                // Nếu role = 1 (admin), chuyển hướng đến trang admin
+                return redirect()->route('admin.categories.index');
+            } else {
+                // Nếu role = 0 hoặc khác (người dùng thông thường), chuyển hướng đến trang home
+                return redirect()->intended('/');
+            }
         } else {
             // Xác thực thất bại, email hoặc password không chính xác
             // Hiển thị thông báo lỗi hoặc đưa người dùng quay lại trang đăng nhập

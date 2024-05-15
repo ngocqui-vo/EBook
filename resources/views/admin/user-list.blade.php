@@ -9,6 +9,7 @@
                 <th scope="col">ID</th>
                 <th scope="col">Name</th>
                 <th scope="col">Email</th>
+                <th class="col">Image</th>
                 <th class="col">Role</th>
                 <th></th>
             </tr>
@@ -19,6 +20,7 @@
                     <th scope="row">{{ $user->id }}</th>
                     <td class="col">{{ $user->name }}</td>
                     <td class="col">{{ $user->email }}</td>
+                    <td class="col"><img style="width: 100px; height:100px" src="{{ asset('assets/storage/' . $user->image) }}" alt=""></td>
                     <td class="col">{{ $user->role ? 'Admin' : 'Member' }}</td>
                     <td>
                         <a class="btn btn-primary" href="{{ route('admin.users.edit', ['id' => $user->id]) }}">Sửa</a>  
@@ -29,4 +31,7 @@
 
         </tbody>
     </table>
+    <div class="row" style="margin-top: 20px;">
+        <div class="col-md-2 offset-md-5">{{ $users->links() }}</div>
+    </div>
 @endsection

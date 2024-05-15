@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class AuthorController extends Controller
 {
     public function index() {
-        $authors = Author::all();
+        $authors = Author::paginate(2);
         return view("admin.author-list", ['authors'=>$authors]);
     }
 
