@@ -12,11 +12,24 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
+        $user = new UserSeeder();
+        $author = new AuthorSeeder();
+        $category = new CategorySeeder();
+        $book = new BookSeeder();
+        $bookpart = new BookPartSeeder();
+        $cart = new CartSeeder();
+        $cartItem = new CartItemSeeder();
+        $delivery = new DeliverySeeder();
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+
+        $user->run();
+        $author->run();
+        $category->run();
+        $book->run();
+        $bookpart->run();
+
+        $cart->run();
+        $cartItem->run();
+        $delivery->run();
     }
 }

@@ -14,28 +14,36 @@ class AuthorSeeder extends Seeder
     public function run(): void
     {
         DB::table('authors')->insert([
-            'name' => 'Lưu Từ Hân',
-            'bio' => 'Lưu Từ Hân'
-        ]);
-        DB::table('authors')->insert([
-            'name' => 'Áo Nhĩ Lương Khảo Tầm Ngư Bảo',
-            'bio' => 'Áo Nhĩ Lương Khảo Tầm Ngư Bảo'
-        ]);
-        DB::table('authors')->insert([
-            'name' => 'Jeffrey Archer',
-            'bio' => 'Jeffrey Archer'
-        ]);
-        DB::table('authors')->insert([
-            'name' => 'Paulo Coelho',
-            'bio' => 'Paulo Coelho'
-        ]);
-        DB::table('authors')->insert([
-            'name' => 'Fujiko F. Fujio',
-            'bio' => 'Fujiko F. Fujio'
-        ]);
-        DB::table('authors')->insert([
-            'name' => 'Akira Toriyama',
-            'bio' => 'Akira Toriyama'
+            [
+                'id' => 1,
+                'name' => 'Lưu Từ Hân',
+                'bio' => 'Lưu Từ Hân'
+            ],
+            [
+                'id' => 2,
+                'name' => 'Áo Nhĩ Lương Khảo Tầm Ngư Bảo',
+                'bio' => 'Áo Nhĩ Lương Khảo Tầm Ngư Bảo'
+            ],
+            [
+                'id' => 3,
+                'name' => 'Jeffrey Archer',
+                'bio' => 'Jeffrey Archer'
+            ],
+            [
+                'id' => 4,
+                'name' => 'Paulo Coelho',
+                'bio' => 'Paulo Coelho'
+            ],
+            [
+                'id' => 5,
+                'name' => 'Fujiko F. Fujio',
+                'bio' => 'Fujiko F. Fujio'
+            ],
+            [
+                'id' => 6,
+                'name' => 'Akira Toriyama',
+                'bio' => 'Akira Toriyama'
+            ]
         ]);
     }
 }

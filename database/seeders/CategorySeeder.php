@@ -14,18 +14,31 @@ class CategorySeeder extends Seeder
     public function run(): void
     {
         DB::table('categories')->insert([
-            'name' => 'Huyền huyễn',
-            'description' => 'Huyền ảo, phi thực tế'
-        ]);
-        DB::table('categories')->insert([
-            'name' => 'Kinh tế',
-            'description' => 'Thông tin, kiến thức về kinh tế'
+            [
+                'id' => 1,
+                'name' => 'Huyền huyễn',
+                'description' => 'Huyền ảo, phi thực tế'
+            ],
+            [
+                'id' => 2,
+                'name' => 'Kinh tế',
+                'description' => 'Thông tin, kiến thức về kinh tế'
+            ],
+            [
+                'id' => 3,
+                'name' => 'Truyện tranh',
+                'description' => 'Truyện tranh...'
+            ],
+            [
+                'id' => 4,
+                'name' => 'Khoa học',
+                'description' => 'Kiến thức về khoa học, đời sống.'
+            ],
+            [
+                'id' => 5,
+                'name' => 'Tiểu thuyết',
+                'description' => 'Tiểu thuyết...'
+            ]
         ]);
     }
 }
-Schema::create('categories', function (Blueprint $table) {
-    $table->id();
-    $table->string('name');
-    $table->string('description');
-    $table->timestamps();
-});
