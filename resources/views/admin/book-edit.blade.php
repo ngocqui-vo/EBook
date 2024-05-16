@@ -47,7 +47,7 @@
             </select>
         </div>
 
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">Sửa</button>
     </form>
 
     <h1>Danh sách tập</h1>

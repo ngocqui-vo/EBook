@@ -56,7 +56,7 @@
             <strong>{{ auth()->user()->name }}</strong>
         </a>
         <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
-            <li><a class="dropdown-item" href="{{ route('logout.perform') }}">Sign out</a></li>
+            <li><a class="dropdown-item" href="{{ route('logout.perform') }}">Đăng xuất</a></li>
         </ul>
     </div>
 </div>

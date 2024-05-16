@@ -14,7 +14,7 @@
             <input type="text" class="form-control" name="bio" value="{{ $author->bio }}">   
           </div>
         
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">Sửa</button>
       </form>
 
 @endsection
