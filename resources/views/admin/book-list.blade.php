@@ -33,4 +33,7 @@
 
         </tbody>
     </table>
+    <div class="row" style="margin-top: 20px;">
+        <div class="col-md-2 offset-md-5">{{ $books->links() }}</div>
+    </div>
 @endsection

@@ -13,15 +13,14 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $bookModel = new Book();
-        $books = $bookModel->getAllBooks();
+        $books = Book::paginate(4);
         return view('home', compact('books'));
     }
     public function search(Request $request)
     {
         // truy van sql
         $keyword = $request->input('keyword');
-        $books = Book::where('title', 'like', "%$keyword%")->get();
+        $books = Book::where('title', 'like', "%$keyword%")->paginate(4);
         // $books = Book::all();
         return view('search', ['books' => $books]);
     }

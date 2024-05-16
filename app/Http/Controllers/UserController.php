@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Hash;
 class UserController extends Controller
 {
     public function index() {
-        $users = User::all();
+        $users = User::paginate(2);
         return view('admin.user-list',['users' => $users]);
     }
 
@@ -18,13 +18,27 @@ class UserController extends Controller
     }
 
     public function store(Request $request) {
+        $data = $request->all();
+        
+        if($request->hasFile('image'))
+        {
+            $file = $request->file('image');
+            $ex = $file->getClientOriginalExtension(); //Lay phan mo rong .jpn,....
+            $filename = time().'.'.$ex;
+            $file->move('assets/storage/',$filename);
+            $data['image'] = $filename;
+
+        }
+
         User::create([
             'email' => $request->email,
             'name' => $request->name,
             'password' => bcrypt($request->password),
-            'role' => $request->role
+            'role' => $request->role,
+            'image' => $data['image'],
         ]);
-        return redirect('')->route('admin.users.index');
+
+        return redirect()->route('admin.users.index');
     }
 
     public function edit($id) {
@@ -37,9 +51,21 @@ class UserController extends Controller
         $user->name = $request->name;
         $user->password = bcrypt($request->password);
         $user->role = $request->role;
+        $user->email = $request->email;
+    
+        if ($request->hasFile('image')) {
+    
+            $file = $request->file('image');
+            $extension = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $extension;
+            $file->move('assets/storage/', $filename);
+            $user->image = $filename;
+        }
+    
         $user->save();
         return redirect()->route('admin.users.index');
     }
+    
 
     public function delete($id) {
         User::find($id)->delete();

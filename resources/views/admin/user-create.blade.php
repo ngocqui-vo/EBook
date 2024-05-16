@@ -2,7 +2,7 @@
 
 @section('content')
     <h1>Thêm người dùng</h1>
-    <form method="POST" action="{{ route('admin.users.store') }}">
+    <form method="POST" action="{{ route('admin.users.store') }}" enctype="multipart/form-data">
         @csrf
         <div class="mb-3">
             <label for="name" class="form-label">Tên người dùng</label>
@@ -26,6 +26,12 @@
                 <option selected value="0">Member</option>
                 <option value="1">Admin</option>
             </select>
+        </div>
+
+        <div class="form-group mb-3">
+                        <div class="col-sm-4 control-label"><span>Ảnh sản phẩm</span></div>
+                             <div class="col-sm-5"><input type="file" id="fileToUpload"
+                                    class="form-control" name="image" required></div>
         </div>
 
         <button type="submit" class="btn btn-primary">Submit</button>

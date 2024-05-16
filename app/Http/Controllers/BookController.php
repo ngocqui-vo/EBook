@@ -12,7 +12,7 @@ class BookController extends Controller
 {
     public function index()
     {
-        $books = Book::all();
+        $books = Book::paginate(2);
         return view("admin.book-list", ['books' => $books]);
     }
 
@@ -34,7 +34,7 @@ class BookController extends Controller
         $book->author_id = $request->input('author');
 
         if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('books', 'public');
+            $imagePath = $request->file('image')->store('assets/storage', 'public');
             $book->image = $imagePath;
         }
 

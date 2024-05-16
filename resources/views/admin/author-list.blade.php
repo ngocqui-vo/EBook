@@ -8,7 +8,7 @@
             <tr>
                 <th scope="col">ID</th>
                 <th scope="col">Name</th>
-                <th scope="col">Bio</th>
+                <th scope="col">Biệt Danh</th>
                 <th scope="col"></th>
             </tr>
         </thead>
@@ -27,4 +27,9 @@
 
         </tbody>
     </table>
+    <div class="row" style="margin-top: 20px;">
+    <div class="col-2 offset-5">
+        {{ $authors->links() }}
+    </div>
+</div>
 @endsection

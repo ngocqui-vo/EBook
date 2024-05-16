@@ -23,18 +23,16 @@
                 <li>                 
                     <a href="{{ route('user.center' )}}">{{ auth()->user()->name }}</a>
                 </li>
-                @endauth
                 <li>
                     <a href="{{ route('cart.cartDetail') }}"><span class="glyphicon glyphicon-shopping-cart">Giỏ hàng</span></a>
                 </li>
-                @guest
+                <li>
+                    <a href="{{ route('logout.perform') }}">Đăng xuất</a>
+                </li>
+                @else
                 <li><a href="{{ route('login.show') }}">Đăng nhập</a></li>
                 <li><a href="{{ route('register.show') }}">Đăng ký</a></li>
-                @endguest
-                {{-- <li>
-                    <a href="center.html">Chào mừng, user</a>
-                    <a href="{{ route('logout.perform') }}">Đăng xuất</a>
-                </li> --}}
+                @endauth
             </ul>
         </div>
     </div>

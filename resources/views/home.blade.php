@@ -8,13 +8,13 @@
             </ol>
             <div class="carousel-inner" role="listbox">
                 <div class="item active">
-                    <img src="img/1.jpg" alt="" style="height: 500px;width: 100%;">
+                    <img src="assets/storage/nha-sach-dep-o-viet-nam-1.jpg" alt="" style="height: 500px;width: 100%;">
                     <div class="carousel-caption">
                         Tiêu đề sách 1
                     </div>
                 </div>
                 <div class="item">
-                    <img src="img/sy2.jpg" alt="" style="height: 500px;width: 100%;">
+                    <img src="assets/storage/nha-sach-dep-o-viet-nam-14.jpg" alt="" style="height: 500px;width: 100%;">
                     <div class="carousel-caption">
                         Tiêu đề sách 2
                     </div>
@@ -65,6 +65,11 @@
                         </div>
                         @endforeach
                         
+                    </div>
+                    <div class="row" style="margin-top: 20px;">
+                        <div class="col-12">
+                            {{ $books->links() }}
+                        </div>
                     </div>
                 </div>
             </div>

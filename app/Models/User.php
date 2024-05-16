@@ -22,6 +22,7 @@ class User extends Authenticatable
         'email',
         'password',
         'role',
+        'image',
     ];
     public function reviews() {
         return $this->hasMany(Review::class);
