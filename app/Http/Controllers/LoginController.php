@@ -29,12 +29,12 @@ class LoginController extends Controller
                 return redirect()->route('admin.categories.index');
             } else {
                 // Nếu role = 0 hoặc khác (người dùng thông thường), chuyển hướng đến trang home
-                return redirect()->intended('/');
+                return redirect()->route('home.index');
             }
         } else {
             // Xác thực thất bại, email hoặc password không chính xác
             // Hiển thị thông báo lỗi hoặc đưa người dùng quay lại trang đăng nhập
-            return back()->withErrors(['email' => 'Invalid credentials']);
+            return back()->withErrors(['email' => 'Tài khoản hoặc mật khẩu không hợp lệ!!!']);
         }
     }
 }

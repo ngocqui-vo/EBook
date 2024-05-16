@@ -82,7 +82,7 @@
                     <tbody>
                         @foreach ($cart->cartItems as $item)       
                         <tr>
-                            <td>{{ $item->bookPart->book->title }}</td>
+                            <td>{{ $item->bookPart->book->title }} <div><span>{{ $item->bookPart->part_title}}</span></div></td>
                             <td>{{ $item->bookPart->book->price }}</td>
                             <td>{{ $item->quantity }}</td>
                             <td>{{ $item->totalPrice() }}</td>

@@ -9,15 +9,11 @@
             <div class="carousel-inner" role="listbox">
                 <div class="item active">
                     <img src="assets/storage/nha-sach-dep-o-viet-nam-1.jpg" alt="" style="height: 500px;width: 100%;">
-                    <div class="carousel-caption">
-                        Tiêu đề sách 1
-                    </div>
+                    
                 </div>
                 <div class="item">
                     <img src="assets/storage/nha-sach-dep-o-viet-nam-14.jpg" alt="" style="height: 500px;width: 100%;">
-                    <div class="carousel-caption">
-                        Tiêu đề sách 2
-                    </div>
+                   
                 </div>
             </div>
 

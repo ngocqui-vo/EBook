@@ -98,7 +98,7 @@
                                         <td class="text-center">
                                             <div onclick="myClick(1)">{{ $cart->id }}</div>
                                         </td>
-                                        <td class="text-center"><span class="text-danger">Đã hủy</span></td>
+                                        <td class="text-center"><span class="text-success">Thành công</span></td>
                                         <td class="text-center">
                                             <span>{{ $cart->totalItems() }}</span>
                                         </td>
