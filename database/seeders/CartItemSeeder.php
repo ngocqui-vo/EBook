@@ -13,7 +13,7 @@ class CartItemSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('carts')->insert([
+        DB::table('cart_items')->insert([
             [
                 'cart_id' => 1,
                 'book_part_id' => 1,
