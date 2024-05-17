@@ -20,7 +20,7 @@
                     <th scope="row">{{ $user->id }}</th>
                     <td class="col">{{ $user->name }}</td>
                     <td class="col">{{ $user->email }}</td>
-                    <td class="col"><img style="width: 100px; height:100px" src="{{ asset('assets/storage/' . $user->image) }}" alt=""></td>
+                    <td class="col"><img style="width: 100px; height:100px" src="{{ asset('storage/' . $user->image) }}" alt=""></td>
                     <td class="col">{{ $user->role ? 'Admin' : 'Member' }}</td>
                     <td>
                         <a class="btn btn-primary" href="{{ route('admin.users.edit', ['id' => $user->id]) }}">Sửa</a>  
