@@ -62,11 +62,7 @@
                         @endforeach
                         
                     </div>
-                    <div class="row" style="margin-top: 20px;">
-                        <div class="col-12">
-                            {{ $books->links() }}
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
 

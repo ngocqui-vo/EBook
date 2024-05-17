@@ -13,7 +13,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $books = Book::paginate(4);
+        $books = Book::take(4)->get();
         return view('home', compact('books'));
     }
     public function search(Request $request)
