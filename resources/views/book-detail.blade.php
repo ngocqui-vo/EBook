@@ -80,7 +80,7 @@
                                             <td class="cell-label">Chất lượng</td>
                                             @for ($i = 1; $i <= 5; $i++)
                                                 <td><input type="radio" name="rating" class="radio"
-                                                        value="{{ $i }}"></td>
+                                                        value="{{ $i }}" required></td>
                                             @endfor
                                         </tr>
                                     </tbody>
@@ -93,7 +93,7 @@
                                 <div role="form" class="cnt-form">
                                     <div class="form-group">
                                         <label for="exampleInputReview">Đánh giá <span class="astk">*</span></label>
-                                        <textarea class="form-control" name="comment" id="exampleInputReview" rows="4" placeholder=""></textarea>
+                                        <textarea class="form-control" name="comment" id="exampleInputReview" rows="4" placeholder="" required></textarea>
                                     </div>
                                     <div class="action text-center">
                                         <button type="submit" class="btn btn-primary btn-upper submit">Gửi đánh
