@@ -21,8 +21,13 @@ class HomeController extends Controller
         // truy van sql
         $keyword = $request->input('keyword');
         $books = Book::where('title', 'like', "%$keyword%")->paginate(4);
-        // $books = Book::all();
-        return view('search', ['books' => $books]);
+
+        if ($books->count() > 0) {
+            return view('search', ['books' => $books]);
+        } else {
+            echo "<script>alert('Không có sách nào có tên này!!');</script>";
+            return redirect()->route('home.index');
+        }    
     }
 
     public function bookDetail($id)
@@ -76,7 +81,8 @@ class HomeController extends Controller
         if ($category) {
             return view('category-detail', ['category' => $category]);
         }
-        return 'not found';
+        echo "<script>alert('Không có danh mục này!!');</script>";
+        return redirect()->route('home.index');
     }
 
     public function authors()
@@ -91,7 +97,8 @@ class HomeController extends Controller
         if ($author) {
             return view('author-detail', ['author' => $author]);
         }
-        return 'not found';
+        echo "<script>alert('Không có tác giả này!!');</script>";
+        return redirect()->route('home.index');
     }
 
 

@@ -43,16 +43,26 @@ class UserController extends Controller
 
     public function edit($id) {
         $user = User::find($id);
-        return view('admin.user-edit',['user'=> $user]);
+        if ($user) {
+            return view('admin.user-edit',['user'=> $user]);
+        } else {            
+            echo "<script>alert('Không có user này!!');</script>";
+            return redirect()->route('admin.users.index');
+        }
+        
+        
     }
 
     public function update(Request $request) {
         $user = User::find($request->id);
         $user->name = $request->name;
-        $user->password = bcrypt($request->password);
         $user->role = $request->role;
         $user->email = $request->email;
     
+
+        if ($request->password) {
+            $user->password = bcrypt($request->password);
+        }
         if ($request->hasFile('image')) {
     
             // $file = $request->file('image');
