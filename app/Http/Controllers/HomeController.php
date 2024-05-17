@@ -56,7 +56,7 @@ class HomeController extends Controller
             return view('book-detail', [
                 'book' => $book,
                 'rating' => $rating,
-                'userFollowBook' => $userFollowBook
+                'userFollowBook' => isset($userFollowBook) ? $userFollowBook : null
             ]);
         }
         return 'not found';

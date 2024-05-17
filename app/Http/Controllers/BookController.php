@@ -87,7 +87,9 @@ class BookController extends Controller
 
     public function followBook($id) {
         $user = auth()->user();
-        $userFollowBook = UserFollowBook::where('user_id', $user->id)->first();
+        $userFollowBook = UserFollowBook::where('user_id', $user->id)
+        ->where('book_id', $id)
+        ->first();
 
         if (!$userFollowBook) {
             $userFollowBook = UserFollowBook::create([

@@ -18,25 +18,29 @@ class CartItemSeeder extends Seeder
                 'cart_id' => 1,
                 'book_part_id' => 1,
                 'quantity' => 2,
-                'created_at' => now()
+                'created_at' => now(),
+                'updated_at' => now()
             ],
             [
                 'cart_id' => 1,
                 'book_part_id' => 2,
                 'quantity' => 3,
-                'created_at' => now()
+                'created_at' => now(),
+                'updated_at' => now()
             ],
             [
                 'cart_id' => 2,
                 'book_part_id' => 5,
                 'quantity' => 5,
-                'created_at' => now()
+                'created_at' => now(),
+                'updated_at' => now()
             ],
             [
                 'cart_id' => 3,
                 'book_part_id' => 9,
                 'quantity' => 1,
-                'created_at' => now()
+                'created_at' => now(),
+                'updated_at' => now()
             ],
         ]);
     }

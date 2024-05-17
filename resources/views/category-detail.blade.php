@@ -16,11 +16,9 @@
                             <td>
                                 <div>{{ $book->title }}</div>
                                 <div class="text-danger">{{ $book->price }} VND</div>
-                                <div>2011-01-01/Nhà xuất bản Kim Đồng</div>
                             </td>
                             <td>
                                 <a href="{{ route('home.bookDetail', ['id' => $book->id])}}" class="btn btn-sm btn-info btn-block">Chi tiết sách</a>
-                                <a href="#" class="btn btn-sm btn-danger btn-block">Thêm vào giỏ hàng</a>
                             </td>
                         </tr>
                     @endforeach

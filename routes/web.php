@@ -34,34 +34,30 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
 
 
     Route::group(['middleware' => ['guest']], function () {
-        /**
-         * Register Routes
-         */
+        // Register Routes
         Route::get('/register', 'RegisterController@show')->name('register.show');
         Route::post('/register', 'RegisterController@register')->name('register.perform');
-
-
-        /**
-         * Login Routes
-         */
+        
+        // Login Routes
         Route::get('/login', 'LoginController@show')->name('login.show');
         Route::post('/login', 'LoginController@login')->name('login.perform');
     });
     Route::group(['middleware' => ['auth']], function () {
-        /**
-         * Logout Routes
-         */
+        // Logout Routes
         Route::get('/logout', 'LogoutController@perform')->name('logout.perform');
 
         // comment
         Route::post('/comment', 'HomeController@review')->name('home.review');
+        
         // follow book
         Route::get('/follow/{id}', 'BookController@followBook')->name('book.followBook');
 
+        // user
+        Route::get('/user/center', 'UserController@center')->name('user.center');
+        Route::post('/user/changePassword', 'UserController@changePassword')->name('user.changePassword');
+
         Route::group(['middleware' => ['admin']], function () {
-            // user
-            Route::get('/user/center', 'UserController@center')->name('user.center');
-            Route::post('/user/changePassword', 'UserController@changePassword')->name('user.changePassword');
+            
 
             // Categories
             Route::get('/admin/categories', 'CategoryController@index')->name('admin.categories.index');

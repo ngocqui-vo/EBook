@@ -33,6 +33,31 @@
                             </tbody>
                         </table>
                     </div>
+                    <h3>Danh sách theo dõi</h3>
+                    <div class="table-responsive">
+                        <table class="table">
+                           
+                            <tbody>
+                                @foreach ($user->followBooks as $follow)
+                                    <tr>
+                                        <td>
+                                            <div style="width: 80px; height: 80px;">
+                                                <img src="{{ asset('storage/' . $follow->book->image) }}" alt="book" style="height:100%;">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div>{{ $follow->book->title }}</div>
+                                            <div class="text-danger">{{ $follow->book->price }} VND</div>
+                                        </td>
+                                        <td>
+                                            <a href="{{ route('home.bookDetail', ['id' => $follow->book->id])}}" class="btn btn-sm btn-info btn-block">Chi tiết sách</a>
+                                        </td>
+                                    </tr>
+                                @endforeach
+            
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
                 <div role="tabpanel" class="tab-pane" id="editPassword">
                     <div class="container" style="margin-top: 20px;">
@@ -46,8 +71,8 @@
                                         <input type="password" class="form-control" id="old_password" name="old_password"
                                             placeholder="Mật khẩu cũ">
                                     </div>
-                                    @if ($errors->has('password'))
-                                        <span class="text-danger text-left">{{ $errors->first('password') }}</span>
+                                    @if ($errors->has('old_password'))
+                                        <p class="text-danger text-left">{{ $errors->first('old_password') }}</p>
                                     @endif
                                 </div>
                                 <div class="form-group">
@@ -57,7 +82,7 @@
                                             placeholder="Mật khẩu mới">
                                     </div>
                                     @if ($errors->has('new_password'))
-                                        <span class="text-danger text-left">{{ $errors->first('new_password') }}</span>
+                                        <p class="text-danger text-left">{{ $errors->first('new_password') }}</p>
                                     @endif
                                 </div>
                                 <div class="form-group">
@@ -68,7 +93,7 @@
                                             name="confirm_password" placeholder="Nhập lại mật khẩu mới">
                                     </div>
                                     @if ($errors->has('confirm_password'))
-                                        <span class="text-danger text-left">{{ $errors->first('confirm_password') }}</span>
+                                        <p class="text-danger text-left">{{ $errors->first('confirm_password') }}</p>
                                     @endif
                                 </div>
                                 <div class="form-group">

@@ -24,15 +24,16 @@ class UserSeeder extends Seeder
         ]);
         DB::table('users')->insert([
             'id' => 2,
-            'name' => 'bui thi thuy tien',
+            'name' => 'Thủy Tiên',
             'email' => 'thuytien16102003@gmail.com',
             'password' => Hash::make('123')
         ]);
         DB::table('users')->insert([
             'id' => 3,
-            'name' => 'vo ngoc qui',
+            'name' => 'Ngọc Quí',
             'email' => 'ngocquivo11@gmail.com',
-            'password' => Hash::make('123')
+            'password' => Hash::make('123'),
+            'role' => 1
         ]);
     }
 }

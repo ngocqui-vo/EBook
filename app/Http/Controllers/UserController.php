@@ -92,7 +92,7 @@ class UserController extends Controller
         $request->validate([
             'old_password' => 'required',
             'new_password' => 'required',
-            'confirm_password' => 'required|same:password'
+            'confirm_password' => 'required|same:new_password'
         ]);
         $user = auth()->user();
         if ($user && Hash::check($request->input('old_password'), $user->password)) {
@@ -100,6 +100,6 @@ class UserController extends Controller
             $user->save();
             return view('auth.change-password-success');
         }
-        return redirect()->route('home.index');
+        return back()->withErrors(['old_password' => 'Password invalid']);
     }
 }

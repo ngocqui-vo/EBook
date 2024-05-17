@@ -84,7 +84,7 @@ class CartController extends Controller
         $cart = session()->get('cart');
 
         if (!$cart) {
-            return 'giỏ hàng chưa có sản phẩm';
+            return view('erorrs.cart-empty');
         }
 
         foreach ($cart as $item) {
@@ -94,6 +94,11 @@ class CartController extends Controller
     }
 
     public function payment(Request $request) {
+        $request->validate([
+            'name' => 'required|min:3',
+            'phone' => 'required|numeric',
+            'address' => 'required|min:5'
+        ]);
         $cartSession = session()->get('cart');
         $currentUser = auth()->user();
         $cart = Cart::create(['user_id' => $currentUser->id]);
@@ -121,6 +126,9 @@ class CartController extends Controller
 
     public function orderDetail($id) {
         $cart = Cart::find($id);
+        if (!$cart) {
+            return view('erorrs.404');
+        }
         $delivery = $cart->deliveries->first();
         return view('order-detail', ['cart' => $cart, 'delivery' => $delivery]);
     }

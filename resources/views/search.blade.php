@@ -1,4 +1,10 @@
 @extends('layouts.app-master')
+
+@section('style')
+<style>
+    
+</style>
+@endsection
 @section('content')
     <div class="container">
         <div class="row">

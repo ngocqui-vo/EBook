@@ -36,8 +36,8 @@
                     <label for="address" class="col-sm-4 control-label">Địa chỉ</label>
                     <div class="col-sm-5">
                         <input type="text" class="form-control" name="address" placeholder="Địa chỉ">
-                        @if ($errors->has('phone'))
-                            <span class="text-danger text-left">{{ $errors->first('phone') }}</span>
+                        @if ($errors->has('address'))
+                            <span class="text-danger text-left">{{ $errors->first('address') }}</span>
                         @endif
                     </div>
                 </div>

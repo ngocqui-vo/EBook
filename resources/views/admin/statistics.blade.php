@@ -6,7 +6,11 @@
     <form action="{{ route('admin.statistic') }}" method="GET">
         <label for="date">Chọn ngày để thống kê</label>
         <input type="month" id="date" name="date" value="{{$year}}-{{$month}}">
-        <button type="submit">Thống kê</button>
+        
+        <button type="submit" class="btn btn-primary">Thống kê</button>
+        @if ($errors->any())
+            <h4 class="text-danger">{{ $errors->first()}}</h4>
+        @endif
     </form>
 
     <table class="table">

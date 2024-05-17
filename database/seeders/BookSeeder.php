@@ -35,7 +35,7 @@ class BookSeeder extends Seeder
                 'author_id' => 2
             ],
             [
-                'title' => 'Sapiens: Lược Sử Loài Người',
+                'title' => 'Lược Sử Loài Người',
                 'price' => 39000,
                 'view_count' => 12,
                 'description' => 'Cuốn sách của Yuval Noah Harari về lịch sử phát triển của loài người.',

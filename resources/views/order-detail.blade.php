@@ -101,12 +101,8 @@
                                     hàng</a>
                             </td>
                             <td></td>
-                            <td>
-                                <a href="#" class="btn btn-danger btn-sm col-sm-12">Xóa đơn hàng</a>
-                            </td>
-                            <td>
-                                <a href="#" class="btn btn-success btn-sm col-sm-12">Thanh toán</a>
-                            </td>
+                            <td></td>
+                            <td></td>
                         </tr>
                     </tfoot>
                 </table>
