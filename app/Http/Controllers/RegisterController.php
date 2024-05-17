@@ -13,32 +13,25 @@ class RegisterController extends Controller
 
     public function register(Request $request) {
       
-        // $request->validate([
-        //     "email" => "required|email:rfc,dns|unique:users,email",
-        //     "name" => "required|string",
-        //     "password" => "required|min:3",
-        //     "password_confirmation" => "required|same:password",          
-        // ]);
+        $user = new User();
+        $user->email = $request->email;
+        $user->name = $request->name;
+        $user->password = bcrypt($request->password);
+        $user->role = 0;
 
-        $data = $request->all();
         
         if($request->hasFile('image'))
         {
-            $file = $request->file('image');
-            $ex = $file->getClientOriginalExtension(); //Lay phan mo rong .jpn,....
-            $filename = time().'.'.$ex;
-            $file->move('assets/storage/',$filename);
-            $data['image'] = $filename;
-
+            // $file = $request->file('image');
+            // $ex = $file->getClientOriginalExtension(); //Lay phan mo rong .jpn,....
+            // $filename = time().'.'.$ex;
+            // $file->move('assets/storage/',$filename);
+            // $data['image'] = $filename;
+            $imagePath = $request->file('image')->store('users', 'public');
+            $user->image = $imagePath;
         }
+        $user->save();
 
-        $user = User::create([
-            'email' => $request->email,
-            'name' => $request->name,
-            'password' => bcrypt($request->password),
-            'image' => $data['image'],
-        ]);
-        auth()->login($user);
         return redirect()->route('home.index');
     }
 }
