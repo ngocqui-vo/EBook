@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('title');
             $table->decimal('price');
             $table->string('description');
-            $table->string('image');
+            $table->string('image')->default('books/unkown.jpg');
             $table->date('published_date');
             $table->unsignedBigInteger('category_id')->nullable();
             $table->unsignedBigInteger('author_id')->nullable();

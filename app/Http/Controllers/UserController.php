@@ -18,25 +18,25 @@ class UserController extends Controller
     }
 
     public function store(Request $request) {
-        $data = $request->all();
+        // $data = $request->all();
+        $user = new User();
+        $user->email = $request->email;
+        $user->name = $request->name;
+        $user->password = bcrypt($request->password);
+        $user->role = $request->role;
+
         
         if($request->hasFile('image'))
         {
-            $file = $request->file('image');
-            $ex = $file->getClientOriginalExtension(); //Lay phan mo rong .jpn,....
-            $filename = time().'.'.$ex;
-            $file->move('assets/storage/',$filename);
-            $data['image'] = $filename;
-
+            // $file = $request->file('image');
+            // $ex = $file->getClientOriginalExtension(); //Lay phan mo rong .jpn,....
+            // $filename = time().'.'.$ex;
+            // $file->move('assets/storage/',$filename);
+            // $data['image'] = $filename;
+            $imagePath = $request->file('image')->store('users', 'public');
+            $user->image = $imagePath;
         }
-
-        User::create([
-            'email' => $request->email,
-            'name' => $request->name,
-            'password' => bcrypt($request->password),
-            'role' => $request->role,
-            'image' => $data['image'],
-        ]);
+        $user->save();
 
         return redirect()->route('admin.users.index');
     }
@@ -55,11 +55,13 @@ class UserController extends Controller
     
         if ($request->hasFile('image')) {
     
-            $file = $request->file('image');
-            $extension = $file->getClientOriginalExtension();
-            $filename = time() . '.' . $extension;
-            $file->move('assets/storage/', $filename);
-            $user->image = $filename;
+            // $file = $request->file('image');
+            // $extension = $file->getClientOriginalExtension();
+            // $filename = time() . '.' . $extension;
+            // $file->move('assets/storage/', $filename);
+            // $user->image = $filename;
+            $imagePath = $request->file('image')->store('users', 'public');
+            $user->image = $imagePath;
         }
     
         $user->save();

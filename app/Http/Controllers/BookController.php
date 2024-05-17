@@ -34,7 +34,7 @@ class BookController extends Controller
         $book->author_id = $request->input('author');
 
         if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('assets/storage', 'public');
+            $imagePath = $request->file('image')->store('books', 'public');
             $book->image = $imagePath;
         }
 
