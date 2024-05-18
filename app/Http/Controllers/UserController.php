@@ -18,27 +18,27 @@ class UserController extends Controller
     }
 
     public function store(Request $request) {
-        try {
-            $user = new User();
-            $user->email = $request->email;
-            $user->name = $request->name;
-            $user->password = bcrypt($request->password);
-            $user->role = 0;
-            if ($request->hasFile('image')) {
-                // $file = $request->file('image');
-                // $ex = $file->getClientOriginalExtension(); //Lay phan mo rong .jpn,....
-                // $filename = time().'.'.$ex;
-                // $file->move('assets/storage/',$filename);
-                // $data['image'] = $filename;
-                $imagePath = $request->file('image')->store('users', 'public');
-                $user->image = $imagePath;
-            }
-            $user->save();
+        // $data = $request->all();
+        $user = new User();
+        $user->email = $request->email;
+        $user->name = $request->name;
+        $user->password = bcrypt($request->password);
+        $user->role = $request->role;
 
-            return redirect()->route('home.index');
-        } catch (Exception) {
-            return view('erorrs.register-fail');
+        
+        if($request->hasFile('image'))
+        {
+            // $file = $request->file('image');
+            // $ex = $file->getClientOriginalExtension(); //Lay phan mo rong .jpn,....
+            // $filename = time().'.'.$ex;
+            // $file->move('assets/storage/',$filename);
+            // $data['image'] = $filename;
+            $imagePath = $request->file('image')->store('users', 'public');
+            $user->image = $imagePath;
         }
+        $user->save();
+
+        return redirect()->route('admin.users.index');
     }
 
     public function edit($id) {
