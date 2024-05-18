@@ -97,7 +97,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
             Route::post('/admin/users/store', 'UserController@store')->name('admin.users.store');
             Route::get('/admin/users/edit/{id}', 'UserController@edit')->name('admin.users.edit');
             Route::post('/admin/users/update', 'UserController@update')->name('admin.users.update');
-            Route::post('/admin/users/delete/{id}', 'UserController@update')->name('admin.users.delete');
+            Route::get('/admin/users/delete/{id}', 'UserController@update')->name('admin.users.delete');
 
 
             // cart
